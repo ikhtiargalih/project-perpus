@@ -107,7 +107,11 @@
       </div>
     </section>
 
-    <!-- ======= Post Grid Section ======= -->
+    <!-- ======= popular  book ======= -->
+    <?php
+     include 'config/koneksi.php';
+     $query = mysqli_query($koneksi, "SELECT * FROM book ORDER BY id_buku DESC");
+    ?>
     <section id="posts" class="posts">
       <div class="container" data-aos="fade-up">
         <div class="section-header mb-5">
@@ -115,11 +119,13 @@
         </div>
         <div class="row g-5">
           <div class="col-lg-4">
+            <?php
+             while ($data = mysqli_fetch_array($query)) {
+            ?>
             <div class="post-entry-1 lg">
-              <a href="#"><img src="assets/img/harry.jpg" alt="" class="img-fluid"></a>
-              <div class="post-meta"><span class="date">Novel</span> <span class="mx-1">&bullet;</span> <span>Jul 5th
-                  '22</span></div>
-              <h2><a href="#">11 Work From Home Part-Time Jobs You Can Do Now</a></h2>
+              <a href="#"><img src="assets/img/<?= $data ['foto_buku'] ?>" alt="" class="img-fluid"></a>
+              <div class="post-meta"><span class="date">Novel</span> <span class="mx-1">&bullet;</span> <span><?= $data ['create_at'] ?></span></div>
+              <h2><a href="#"><?= $data ['judul_buku'] ?></a></h2>
               <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus
                 repudiandae, inventore pariatur numquam cumque possimus exercitationem? Nihil tempore odit ab minus
                 eveniet praesentium, similique blanditiis molestiae ut saepe perspiciatis officia nemo, eos quae cumque.
@@ -128,11 +134,13 @@
               <div class="d-flex align-items-center author">
                 <div class="photo"><img src="assets/img/person-1.jpg" alt="" class="img-fluid"></div>
                 <div class="name">
-                  <h3 class="m-0 p-0">Cameron Williamson</h3>
+                  <h3 class="m-0 p-0"><?= $data ['penerbit'] ?></h3>
                 </div>
               </div>
             </div>
-
+            <?php
+             }
+            ?>
           </div>
 
           <div class="col-lg-8">

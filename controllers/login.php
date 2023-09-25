@@ -5,7 +5,7 @@ $password = md5($_POST['password']);
 
 include '../config/koneksi.php';
 
-$cek = mysqli_query($koneksi, "SELECT * FROM users WHERE username='$username' AND password='$password'");
+$cek = mysqli_query($koneksi, "SELECT * FROM admin WHERE username='$username' AND password='$password'");
 
 $hasil = mysqli_num_rows($cek);
 
