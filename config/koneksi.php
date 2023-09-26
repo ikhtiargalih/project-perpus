@@ -1,5 +1,5 @@
 <?php
 
-$koneksi = mysqli_connect("localhost", "root", "", "users_peminjam");
+$koneksi = mysqli_connect("localhost", "root", "", "db_book");
 
 ?>

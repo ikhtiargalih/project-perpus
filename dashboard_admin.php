@@ -263,9 +263,6 @@
                         <ul class="submenu">
                             <li><a href="knob-chart.html">Chart</a></li>
                         </ul>
-                        <ul class="submenu">
-                            <li><a href="newbook.html">New Book</a></li>
-                        </ul>
                     </li>
                 </ul>
             </div>
@@ -361,7 +358,7 @@
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
                                         <a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
                                         <a class="dropdown-item " href="" onclick="ubahData('<?= $data['id_buku'] ?>')" data-toggle="modal" data-target="#myModal"><i class="dw dw-edit2"></i> Edit</a>
-                                        <a class="dropdown-item" href="controllers/delete_data_buku.php?=<?= $data['id_buku'] ?>" ><i class="dw dw-delete-3"></i> Delete</a>
+                                        <a class="dropdown-item" href="controllers/delete_data_buku.php?id_buku=<?= $data['id_buku'] ?>" ><i class="dw dw-delete-3"></i> Delete</a>
                                     </div>
                                 </div>
                             </td>
@@ -390,7 +387,7 @@
         let url = 'form/update_buku.php';
 
         $.post(url, {
-            id: a
+            id_buku: a
         }, function(data) {
             $('.modal-title').html('Perubahan');
             $('.modal-body').html(data);
