@@ -26,6 +26,8 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
 
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
   <!-- Template Main CSS Files -->
   <link href="assets/css/variables.css" rel="stylesheet">
   <link href="assets/css/main.css" rel="stylesheet">
@@ -95,9 +97,16 @@
       <div class="container">
         <h1>Perpustakaan Solusi Bersama</h1>
         <p>Mari membaca lebih banyak buku untuk pengetahuan yang lebih luas.</p>
-        <input type="text">
+        <div class="align-items-center mt-4 col-md-6">
+          <input type="text" placeholder="search" onkeyup="galih()" id="cari">
+        </div>
       </div>
     </section>
+
+    <section id="hasil_cari" class="text-slider">
+      
+    </section>
+
 
     <section id="text-slider" class="text-slider">
       <div class="container">
@@ -435,6 +444,21 @@
     </div>
 
   </footer>
+
+  <script>
+    function galih(){
+      let cari = $('#cari').val();
+      let url = 'views/hasil_cari.php';
+
+      $.post(url,{
+        cari:cari
+      },function(data){
+        $('#hasil_cari').html(data);
+      });
+
+
+    }
+  </script>
 
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
       class="bi bi-arrow-up-short"></i></a>

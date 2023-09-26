@@ -11,7 +11,7 @@
 
 <body>
     <?php
-   $id= $_POST['id_buku'];
+    $id= $_POST['id_buku'];
     include '../config/koneksi.php';
     $q = mysqli_query($koneksi, "SELECT * FROM book WHERE id_buku='$id'")
     ?>
@@ -26,8 +26,11 @@
                     aria-describedby="basic-addon1 " name="judul_buku" value="<?= $data['judul_buku']?>">
             </div>
             <div class="input-group mb-3">
+            
                 <input class="form-control form-control-sm" id="formFileSm" type="file" name="foto_buku" value="<?= $data['foto_buku']?>">
-                <span class="input-group-text" >image</span>
+                <span class="input-group-text" >
+                <img src="assets/img/<?= $data['foto_buku'] ?>" class="img-fluid" alt="..." width="70px">
+                </span>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text">Kode buku</span>
