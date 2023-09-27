@@ -5,6 +5,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM book WHERE judul_buku like '%$car
 
 ?>
 <div class="container">
+    <h1 style="text-align: center;">Daftar Buku</h1><br>
     <div class="row">
         <div class="col-12">
             <table class="table">
@@ -21,17 +22,17 @@ $query = mysqli_query($koneksi, "SELECT * FROM book WHERE judul_buku like '%$car
                 <tbody>
                     <?php
                     $no = 0;
-                    while($data = mysqli_fetch_array($query)){
-                    $no ++;
+                    while ($data = mysqli_fetch_array($query)) {
+                        $no++;
                     ?>
-                    <tr>
-                        <th scope="row"><?= $no ?></th>
-                        <td><img src="assets/img/<?= $data['foto_buku']?>" alt="" width="70px"></td>
-                        <td><?= $data['kode_buku']?></td>
-                        <td><?= $data['no_urut']?></td>
-                        <td><?= $data['judul_buku']?></td>
-                        <td><?= $data['penerbit']?></td>
-                    </tr>
+                        <tr>
+                            <th scope="row"><?= $no ?></th>
+                            <td><img src="assets/img/<?= $data['foto_buku'] ?>" alt="" width="70px"></td>
+                            <td><?= $data['kode_buku'] ?></td>
+                            <td><?= $data['no_urut'] ?></td>
+                            <td><?= $data['judul_buku'] ?></td>
+                            <td><?= $data['penerbit'] ?></td>
+                        </tr>
                     <?php } ?>
                 </tbody>
             </table>
