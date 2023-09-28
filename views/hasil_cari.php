@@ -4,7 +4,7 @@ $cari = $_POST['cari'];
 $query = mysqli_query($koneksi, "SELECT * FROM book WHERE judul_buku like '%$cari%' || penerbit like '%$cari%'");
 
 ?>
-<div class="container">
+<div class="container py-5">
     <h1 style="text-align: center;">Daftar Buku</h1><br>
     <div class="row">
         <div class="col-12">

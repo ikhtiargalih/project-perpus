@@ -97,9 +97,17 @@
       <div class="container">
         <h1>Perpustakaan Solusi Bersama</h1>
         <p>Mari membaca lebih banyak buku untuk pengetahuan yang lebih luas.</p>
-        <div class="align-items-center mt-4 col-md-6">
+        <!-- <div class="align-items-center mt-4 col-md-6">
           <input type="text" placeholder="search" onkeyup="galih()" id="cari">
+        </div> -->
+        <form class="d-flex mt-5 col-6 " role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" onkeyup="galih()" id="cari">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">
+                <i class="bi bi-search"></i>
+            </button>
         </div>
+        </form>
       </div>
     </section>
 
