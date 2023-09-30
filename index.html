@@ -72,18 +72,8 @@
         <a href="#" class="mx-2"><span class="bi-facebook"></span></a>
         <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
         <a href="#" class="mx-2"><span class="bi-instagram"></span></a>
-
-        <a href="#" class="mx-2 js-search-open"><span class="bi-search"></span></a>
         <i class="bi bi-list mobile-nav-toggle"></i>
 
-        <!-- ======= Search Form ======= -->
-        <div class="search-form-wrap js-search-form-wrap">
-          <form action="search-result.html" class="search-form">
-            <span class="icon bi-search"></span>
-            <input type="text" placeholder="Search" class="form-control">
-            <button class="btn js-search-close"><span class="bi-x"></span></button>
-          </form>
-        </div><!-- End Search Form -->
 
       </div>
 
@@ -97,9 +87,6 @@
       <div class="container">
         <h1>Perpustakaan Solusi Bersama</h1>
         <p>Mari membaca lebih banyak buku untuk pengetahuan yang lebih luas.</p>
-        <!-- <div class="align-items-center mt-4 col-md-6">
-          <input type="text" placeholder="search" onkeyup="galih()" id="cari">
-        </div> -->
         <form class="d-flex mt-5 col-6 " role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" onkeyup="galih()" id="cari">
           <div class="input-group-append">
@@ -125,10 +112,6 @@
     </section>
 
     <!-- ======= popular  book ======= -->
-    <?php
-     include 'config/koneksi.php';
-     $query = mysqli_query($koneksi, "SELECT * FROM book ORDER BY id_buku DESC");
-    ?>
     <section id="posts" class="posts">
       <div class="container" data-aos="fade-up">
         <div class="section-header mb-5">
@@ -136,13 +119,10 @@
         </div>
         <div class="row g-5">
           <div class="col-lg-4">
-            <?php
-             while ($data = mysqli_fetch_array($query)) {
-            ?>
             <div class="post-entry-1 lg">
-              <a href="#"><img src="assets/img/<?= $data ['foto_buku'] ?>" alt="" class="img-fluid"></a>
-              <div class="post-meta"><span class="date">Novel</span> <span class="mx-1">&bullet;</span> <span><?= $data ['create_at'] ?></span></div>
-              <h2><a href="#"><?= $data ['judul_buku'] ?></a></h2>
+              <a href="#"><img src="assets/img/harry1.jpg" alt="" class="img-fluid"></a>
+              <div class="post-meta"><span class="date">Novel</span> <span class="mx-1">&bullet;</span></div>
+              <h2><a href="#"></a></h2>
               <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus
                 repudiandae, inventore pariatur numquam cumque possimus exercitationem? Nihil tempore odit ab minus
                 eveniet praesentium, similique blanditiis molestiae ut saepe perspiciatis officia nemo, eos quae cumque.
@@ -150,14 +130,8 @@
 
               <div class="d-flex align-items-center author">
                 <div class="photo"><img src="assets/img/person-1.jpg" alt="" class="img-fluid"></div>
-                <div class="name">
-                  <h3 class="m-0 p-0"><?= $data ['penerbit'] ?></h3>
-                </div>
               </div>
             </div>
-            <?php
-             }
-            ?>
           </div>
 
           <div class="col-lg-8">

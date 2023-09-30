@@ -298,9 +298,10 @@
             $query = mysqli_query($koneksi, "SELECT * FROM book ORDER BY id_buku DESC");
             ?>
             <div class="card-box mb-5">
-                <h2 class="h4 pd-20 mb-2">Buku Baru</h2>
-                <a href="action/create_buku.php" class="mb-4 d-flex justify-content-end p-4">
-                    <i class="bi bi-plus-lg btn btn-primary btn-lg"></i>
+                <div class="container p-4">
+                <a href="action/create_buku.php" class="d-flex justify-content-between">
+                    <h2>Buku Baru</h2>
+                    <button type="button" class="btn btn-outline-dark bi-plus-lg"></button>    
                 </a>
                 <table class="data-table table nowrap mb-5">
                     <thead>
@@ -353,6 +354,7 @@
                         ?>
                     </tbody>
                 </table>
+                </div>
             </div>
         </div>
     </div>
