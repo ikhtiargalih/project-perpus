@@ -7,9 +7,9 @@
     <title>DeskApp - Bootstrap Admin Dashboard HTML Template</title>
 
     <!-- Site favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="admin/vendors/images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="admin/vendors/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="admin/vendors/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/admin/vendors/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/admin/vendors/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/admin/vendors/images/favicon-16x16.png">
 
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -17,12 +17,12 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="admin/vendors/styles/core.css">
-    <link rel="stylesheet" type="text/css" href="admin/vendors/styles/icon-font.min.css">
-    <link rel="stylesheet" type="text/css" href="admin/src/plugins/datatables/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" type="text/css" href="admin/src/plugins/datatables/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/admin/vendors/styles/core.css">
+    <link rel="stylesheet" type="text/css" href="assets/admin/vendors/styles/icon-font.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/admin/src/plugins/datatables/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/admin/src/plugins/datatables/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" type="text/css" href="admin/vendors/styles/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/admin/vendors/styles/style.css">
     <!-- cdn jquery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
@@ -43,7 +43,7 @@
 <body>
     <div class="pre-loader">
         <div class="pre-loader-box">
-            <div class="loader-logo"><img src="admin/vendors/images/deskapp-logo.svg" alt=""></div>
+            <div class="loader-logo"><img src="assets/admin/vendors/images/deskapp-logo.svg" alt=""></div>
             <div class='loader-progress' id="progress_div">
                 <div class='bar' id='bar1'></div>
             </div>
@@ -86,42 +86,42 @@
 							<ul>
 								<li>
 									<a href="#">
-										<img src="admin/vendors/images/img.jpg" alt="">
+										<img src="assets/admin/vendors/images/img.jpg" alt="">
 										<h3>John Doe</h3>
 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
 									</a>
 								</li>
 								<li>
 									<a href="#">
-										<img src="admin/vendors/images/photo1.jpg" alt="">
+										<img src="assets/admin/vendors/images/photo1.jpg" alt="">
 										<h3>Lea R. Frith</h3>
 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
 									</a>
 								</li>
 								<li>
 									<a href="#">
-										<img src="admin/vendors/images/photo2.jpg" alt="">
+										<img src="assets/admin/vendors/images/photo2.jpg" alt="">
 										<h3>Erik L. Richards</h3>
 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
 									</a>
 								</li>
 								<li>
 									<a href="#">
-										<img src="admin/vendors/images/photo3.jpg" alt="">
+										<img src="assets/admin/vendors/images/photo3.jpg" alt="">
 										<h3>John Doe</h3>
 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
 									</a>
 								</li>
 								<li>
 									<a href="#">
-										<img src="admin/vendors/images/photo4.jpg" alt="">
+										<img src="assets/admin/vendors/images/photo4.jpg" alt="">
 										<h3>Renee I. Hansen</h3>
 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
 									</a>
 								</li>
 								<li>
 									<a href="#">
-										<img src="admin/vendors/images/img.jpg" alt="">
+										<img src="assets/admin/vendors/images/img.jpg" alt="">
 										<h3>Vicki M. Coleman</h3>
 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
 									</a>
@@ -135,7 +135,7 @@
                 <div class="dropdown">
                     <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
                         <span class="user-icon">
-                            <img src="admin/vendors/images/photo1.jpg" alt="">
+                            <img src="assets/admin/vendors/images/photo1.jpg" alt="">
                         </span>
                         <span class="user-name">Ross C. Lopez</span>
                     </a>
@@ -226,8 +226,8 @@
     <div class="left-side-bar">
         <div class="brand-logo">
             <a href="index.html">
-                <img src="admin/vendors/images/deskapp-logo.svg" alt="" class="dark-logo">
-                <img src="admin/vendors/images/deskapp-logo-white.svg" alt="" class="light-logo">
+                <img src="assets/admin/vendors/images/deskapp-logo.svg" alt="" class="dark-logo">
+                <img src="assets/admin/vendors/images/deskapp-logo-white.svg" alt="" class="light-logo">
             </a>
             <div class="close-sidebar" data-toggle="left-sidebar-close">
                 <i class="ion-close-round"></i>
@@ -260,7 +260,7 @@
             <div class="card-box pd-20 height-100-p mb-30">
                 <div class="row align-items-center">
                     <div class="col-md-4">
-                        <img src="admin/vendors/images/banner-img.png" alt="">
+                        <img src="assets/admin/vendors/images/banner-img.png" alt="">
                     </div>
                     <div class="col-md-8">
                         <h4 class="font-20 weight-500 mb-10 text-capitalize">
@@ -357,16 +357,16 @@
         </div>
     </div>
     <!-- js -->
-    <script src="admin/vendors/scripts/core.js"></script>
-    <script src="admin/vendors/scripts/script.min.js"></script>
-    <script src="admin/vendors/scripts/process.js"></script>
-    <script src="admin/vendors/scripts/layout-settings.js"></script>
-    <script src="admin/src/plugins/apexcharts/apexcharts.min.js"></script>
-    <script src="admin/src/plugins/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="admin/src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
-    <script src="admin/src/plugins/datatables/js/dataTables.responsive.min.js"></script>
-    <script src="admin/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
-    <script src="admin/vendors/scripts/dashboard.js"></script>
+    <script src="assets/admin/vendors/scripts/core.js"></script>
+    <script src="assets/admin/vendors/scripts/script.min.js"></script>
+    <script src="assets/admin/vendors/scripts/process.js"></script>
+    <script src="assets/admin/vendors/scripts/layout-settings.js"></script>
+    <script src="assets/admin/src/plugins/apexcharts/apexcharts.min.js"></script>
+    <script src="assets/admin/src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="assets/admin/src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <script src="assets/admin/src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+    <script src="assets/admin/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+    <script src="assets/admin/vendors/scripts/dashboard.js"></script>
     <script>
         function ubahData(a) {
             let url = 'action/update_buku.php';
