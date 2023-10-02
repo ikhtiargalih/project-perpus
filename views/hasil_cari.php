@@ -17,7 +17,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM book WHERE judul_buku like '%$car
         <h1 style="text-align: center;">Daftar Buku</h1><br>
         <div class="row">
             <div class="col-12">
-                <table class="table">
+                <table class="table table-dark">
                     <thead>
                         <tr>
                             <th>No.</th>

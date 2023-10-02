@@ -288,26 +288,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Modal -->
-            <div id="myModal" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Modal Header</h4>
-                        </div>
-                        <div class="modal-body">
-                            <p>Some text in the modal.</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
 
             <style>
                 @media (max-width: 768px) {
@@ -324,8 +304,8 @@
             $query = mysqli_query($koneksi, "SELECT * FROM book ORDER BY id_buku DESC");
             ?>
             <div class="card-box" >
-                <a href="action/create_buku.php" class="d-flex justify-content-between pd-20">
-                <h2>Daftar Buku Baru</h2>
+                <a href="action/create_buku.php" class="d-flex justify-content-between px-3 pd-5">
+                <h3>Daftar Buku Baru</h3>
                     <button type="button" class="btn btn-outline-dark bi-plus-lg"></button>
                 </a>
                 <table class="data-table table nowrap mb-5">
