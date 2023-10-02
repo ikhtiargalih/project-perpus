@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['user'])) {
+    header('Location: login/login_admin.html');
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -83,8 +91,8 @@
                 $query = mysqli_query($koneksi, "SELECT * FROM users ORDER BY id DESC");
             ?>
             <div class="user-info-dropdown">
-             <?php
-               while ($item= mysqli_fetch_array($query)) {
+            <?php
+            while ($item= mysqli_fetch_array($query)) {
             ?>
                 <div class="dropdown">
                     <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
@@ -94,8 +102,7 @@
                         <span class="user-name"><?=$item['username']?></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                        <a class="dropdown-item" href="index.html"><i class="dw dw-user1"></i> Profile</a>
-                        <a class="dropdown-item" href="login/login.html"><i class="dw dw-logout"></i> Log Out</a>
+                        <a class="dropdown-item" href="login/login_admin.html"><i class="dw dw-logout"></i> Log Out</a>
                     </div>
                 </div>
                 <?php
@@ -234,24 +241,22 @@
         <div class="pd-ltr-20">
             <div class="card-box pd-20 height-100-p mb-30">
             <?php
-               while ($item= mysqli_fetch_array($query)) {
+                while ($item= mysqli_fetch_array($query)) {
             ?>
                 <div class="row align-items-center">
                     <div class="col-md-4">
                         <img src="assets/admin/vendors/images/banner-img.png" alt="">
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-6">
                         <h4 class="font-20 weight-500 mb-10 text-capitalize">
                             Welcome back <div class="weight-600 font-30 text-blue"><?=$item['username']?></div>
                         </h4>
-                        <p class="font-18 max-width-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde
-                            hic non repellendus debitis iure, doloremque assumenda. Autem modi, corrupti, nobis ea iure
-                            fugiat, veniam non quaerat mollitia animi error corporis.</p>
+                        <p class="font-18 max-width-600">Selamat datang di dashboard admin perpustakaan kami, tempat di mana Anda memiliki kendali penuh untuk mengelola dan memantau perjalanan literasi. Terima kasih atas kontribusi anda dalam memajukan literasi memalui platfom kami.</p>
                     </div>
                 </div>
             <?php
-              }
-             ?>
+            }
+            ?>
             </div>
 
             <style>
