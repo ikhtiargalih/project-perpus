@@ -48,8 +48,8 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="index.html">Blog</a></li>
-          <li class="dropdown"><a href=""><span>Categories</span> <i
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown"><a href="#"><span>Categories</span> <i
                 class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li><a href="novel.html">Novel</a></li>
@@ -64,7 +64,6 @@
 
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="login/login.html"><button type="button" class="btn btn-outline-dark">Login</button></a></li>
         </ul>
       </nav><!-- .navbar -->
 
@@ -72,7 +71,6 @@
         <a href="#" class="mx-2"><span class="bi-facebook"></span></a>
         <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
         <a href="#" class="mx-2"><span class="bi-instagram"></span></a>
-
         <a href="#" class="mx-2 js-search-open"><span class="bi-search"></span></a>
         <i class="bi bi-list mobile-nav-toggle"></i>
 
@@ -84,7 +82,6 @@
             <button class="btn js-search-close"><span class="bi-x"></span></button>
           </form>
         </div><!-- End Search Form -->
-
       </div>
 
     </div>
@@ -97,9 +94,14 @@
       <div class="container">
         <h1>Perpustakaan Solusi Bersama</h1>
         <p>Mari membaca lebih banyak buku untuk pengetahuan yang lebih luas.</p>
-        <div class="align-items-center mt-4 col-md-6">
-          <input type="text" placeholder="search" onkeyup="galih()" id="cari">
+        <form class="d-flex mt-5 col-6 " role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" onkeyup="galih()" id="cari">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">
+                <i class="bi bi-search"></i>
+            </button>
         </div>
+        </form>
       </div>
     </section>
 
@@ -117,10 +119,6 @@
     </section>
 
     <!-- ======= popular  book ======= -->
-    <?php
-     include 'config/koneksi.php';
-     $query = mysqli_query($koneksi, "SELECT * FROM book ORDER BY id_buku DESC");
-    ?>
     <section id="posts" class="posts">
       <div class="container" data-aos="fade-up">
         <div class="section-header mb-5">
@@ -128,13 +126,10 @@
         </div>
         <div class="row g-5">
           <div class="col-lg-4">
-            <?php
-             while ($data = mysqli_fetch_array($query)) {
-            ?>
             <div class="post-entry-1 lg">
-              <a href="#"><img src="assets/img/<?= $data ['foto_buku'] ?>" alt="" class="img-fluid"></a>
-              <div class="post-meta"><span class="date">Novel</span> <span class="mx-1">&bullet;</span> <span><?= $data ['create_at'] ?></span></div>
-              <h2><a href="#"><?= $data ['judul_buku'] ?></a></h2>
+              <a href="#"><img src="assets/img/harry1.jpg" alt="" class="img-fluid"></a>
+              <div class="post-meta"><span class="date">Novel</span> <span class="mx-1">&bullet;</span></div>
+              <h2><a href="#"></a></h2>
               <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus
                 repudiandae, inventore pariatur numquam cumque possimus exercitationem? Nihil tempore odit ab minus
                 eveniet praesentium, similique blanditiis molestiae ut saepe perspiciatis officia nemo, eos quae cumque.
@@ -142,14 +137,8 @@
 
               <div class="d-flex align-items-center author">
                 <div class="photo"><img src="assets/img/person-1.jpg" alt="" class="img-fluid"></div>
-                <div class="name">
-                  <h3 class="m-0 p-0"><?= $data ['penerbit'] ?></h3>
-                </div>
               </div>
             </div>
-            <?php
-             }
-            ?>
           </div>
 
           <div class="col-lg-8">
@@ -310,41 +299,33 @@
     <!-- End Section -->
 
     <!-- ======= Book Section ======= -->
+    <?php
+    include 'config/koneksi.php';
+    $query = mysqli_query($koneksi, "SELECT * FROM book ORDER BY id_buku DESC");
+    ?>
     <section class="book-section">
       <div class="container" data-aos="fade-up">
         <div class="section-header mb-5">
           <h2>Daftar Buku Terbaru Perpustakaan</h2>
         </div>
 
-        <div class="col-8">
+        <div class="col-lg-12 d-flex justify-content-between">
+          <?php
+          while ($data = mysqli_fetch_array($query)) {
+          ?>
           <div class="row">
-            <div class="col-lg-4">
-              <a href="#"><img src="assets/img/harry.jpg" alt="" class="img-fluid"></a>
-              <div class="post-meta"><span class="date">Novel</span> <span class="mx-1">&bullet;</span>
-                <span>Jul 5th '22</span></div>
+            <div class="col-lg-10">
+              <a href="#"><img src="assets/img/<?= $data['foto_buku'] ?>" alt="" class="img-fluid" style="width: 200px"></a>
+              <div class="post-meta"><span class="date"><?= $data['judul_buku'] ?></span> <span class="mx-1">&bullet;</span>
+                <span><?= $data['create_at'] ?></span></div>
               <div class="text-meta">
                 <h2><a href="#">Let’s Get Back to Work, New York</a></h2>
               </div>
             </div>
-
-            <div class="col-lg-4">
-              <a href="#"><img src="assets/img/harry.jpg" alt="" class="img-fluid"></a>
-              <div class="post-meta"><span class="date">Horror</span> <span class="mx-1">&bullet;</span>
-                <span>Jul 17th '22</span></div>
-              <div class="text-meta">
-                <h2><a href="#">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
-              </div>
-            </div>
-
-            <div class="col-lg-4">
-              <a href="#"><img src="assets/img/harry.jpg" alt="" class="img-fluid"></a>
-              <div class="post-meta"><span class="date">Comedy</span> <span class="mx-1">&bullet;</span>
-                <span>Jul 5th '22</span></div>
-              <div class="text-meta">
-                <h2><a href="#">6 Easy Steps To Create Your Own Cute Merch For Instagram</a></h2>
-              </div>
-            </div>
-          </div> <!-- End .row -->
+          </div>
+          <?php
+          }
+          ?> <!-- End .row -->
         </div>
     </section>
 
@@ -368,10 +349,8 @@
             <h3 class="footer-heading">Navigation</h3>
             <ul class="footer-links list-unstyled">
               <li><a href="index.html"><i class="bi bi-chevron-right"></i> Home</a></li>
-              <li><a href="index.html"><i class="bi bi-chevron-right"></i> Blog</a></li>
               <li><a href="index.html"><i class="bi bi-chevron-right"></i> Categories</a></li>
-              <li><a href="#"><i class="bi bi-chevron-right"></i> Single Post</a></li>
-              <li><a href="about.html"><i class="bi bi-chevron-right"></i> About us</a></li>
+              <li><a href="about.html"><i class="bi bi-chevron-right"></i> About</a></li>
               <li><a href="contact.html"><i class="bi bi-chevron-right"></i> Contact</a></li>
             </ul>
           </div>
