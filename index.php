@@ -299,6 +299,10 @@
     <!-- End Section -->
 
     <!-- ======= Book Section ======= -->
+    <?php
+            include 'config/koneksi.php';
+            $query = mysqli_query($koneksi, "SELECT * FROM book ORDER BY id_buku DESC");
+            ?>
     <section class="book-section">
       <div class="container" data-aos="fade-up">
         <div class="section-header mb-5">
@@ -306,34 +310,22 @@
         </div>
 
         <div class="col-8">
+          <?php
+          while ($data = mysqli_fetch_array($query)) {
+          ?>
           <div class="row">
             <div class="col-lg-4">
-              <a href="#"><img src="assets/img/harry.jpg" alt="" class="img-fluid"></a>
-              <div class="post-meta"><span class="date">Novel</span> <span class="mx-1">&bullet;</span>
-                <span>Jul 5th '22</span></div>
+              <a href="#"><img src="assets/img/<?= $data['foto_buku'] ?>" alt="" class="img-fluid"></a>
+              <div class="post-meta"><span class="date"><?= $data['judul_buku'] ?></span> <span class="mx-1">&bullet;</span>
+                <span><?= $data['create_at'] ?></span></div>
               <div class="text-meta">
                 <h2><a href="#">Let’s Get Back to Work, New York</a></h2>
               </div>
             </div>
-
-            <div class="col-lg-4">
-              <a href="#"><img src="assets/img/harry.jpg" alt="" class="img-fluid"></a>
-              <div class="post-meta"><span class="date">Horror</span> <span class="mx-1">&bullet;</span>
-                <span>Jul 17th '22</span></div>
-              <div class="text-meta">
-                <h2><a href="#">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
-              </div>
-            </div>
-
-            <div class="col-lg-4">
-              <a href="#"><img src="assets/img/harry.jpg" alt="" class="img-fluid"></a>
-              <div class="post-meta"><span class="date">Comedy</span> <span class="mx-1">&bullet;</span>
-                <span>Jul 5th '22</span></div>
-              <div class="text-meta">
-                <h2><a href="#">6 Easy Steps To Create Your Own Cute Merch For Instagram</a></h2>
-              </div>
-            </div>
-          </div> <!-- End .row -->
+          </div>
+          <?php
+          }
+          ?> <!-- End .row -->
         </div>
     </section>
 

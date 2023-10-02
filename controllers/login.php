@@ -18,7 +18,7 @@ if($hasil <= 0){
 
     $_SESSION['login'] = 'login';
 
-    header('Location: ../');
+    header('Location: ../dashboard_admin.php');
 }
 
 ?>

@@ -31,14 +31,14 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
+    window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
 
-        gtag('config', 'UA-119386393-1');
+    gtag('config', 'UA-119386393-1');
     </script>
 </head>
 
@@ -77,75 +77,30 @@
                     </a>
                 </div>
             </div>
-            <!-- <div class="user-notification">
-				<div class="dropdown">
-					<a class="dropdown-toggle no-arrow" href="#" role="button" data-toggle="dropdown">
-						<i class="icon-copy dw dw-notification"></i>
-						<span class="badge notification-active"></span>
-					</a>
-					<div class="dropdown-menu dropdown-menu-right">
-						<div class="notification-list mx-h-350 customscroll">
-							<ul>
-								<li>
-									<a href="#">
-										<img src="assets/admin/vendors/images/img.jpg" alt="">
-										<h3>John Doe</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="assets/admin/vendors/images/photo1.jpg" alt="">
-										<h3>Lea R. Frith</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="assets/admin/vendors/images/photo2.jpg" alt="">
-										<h3>Erik L. Richards</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="assets/admin/vendors/images/photo3.jpg" alt="">
-										<h3>John Doe</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="assets/admin/vendors/images/photo4.jpg" alt="">
-										<h3>Renee I. Hansen</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="assets/admin/vendors/images/img.jpg" alt="">
-										<h3>Vicki M. Coleman</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div> -->
+            <!-- users -->
+            <?php
+                include 'config/koneksi.php';
+                $query = mysqli_query($koneksi, "SELECT * FROM users ORDER BY id DESC");
+            ?>
             <div class="user-info-dropdown">
+             <?php
+               while ($item= mysqli_fetch_array($query)) {
+            ?>
                 <div class="dropdown">
                     <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
                         <span class="user-icon">
                             <img src="assets/admin/vendors/images/photo1.jpg" alt="">
                         </span>
-                        <span class="user-name">Ross C. Lopez</span>
+                        <span class="user-name"><?=$item['username']?></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
                         <a class="dropdown-item" href="index.html"><i class="dw dw-user1"></i> Profile</a>
                         <a class="dropdown-item" href="login/login.html"><i class="dw dw-logout"></i> Log Out</a>
                     </div>
                 </div>
+                <?php
+                }
+                ?>
             </div>
         </div>
     </div>
@@ -272,40 +227,75 @@
     <div class="mobile-menu-overlay"></div>
 
     <div class="main-container">
+    <?php
+        include 'config/koneksi.php';
+        $query = mysqli_query($koneksi, "SELECT * FROM users ORDER BY id DESC");
+    ?>
         <div class="pd-ltr-20">
             <div class="card-box pd-20 height-100-p mb-30">
+            <?php
+               while ($item= mysqli_fetch_array($query)) {
+            ?>
                 <div class="row align-items-center">
                     <div class="col-md-4">
                         <img src="assets/admin/vendors/images/banner-img.png" alt="">
                     </div>
                     <div class="col-md-8">
                         <h4 class="font-20 weight-500 mb-10 text-capitalize">
-                            Welcome back <div class="weight-600 font-30 text-blue">Johnny Brown!</div>
+                            Welcome back <div class="weight-600 font-30 text-blue"><?=$item['username']?></div>
                         </h4>
                         <p class="font-18 max-width-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde
                             hic non repellendus debitis iure, doloremque assumenda. Autem modi, corrupti, nobis ea iure
                             fugiat, veniam non quaerat mollitia animi error corporis.</p>
                     </div>
                 </div>
+            <?php
+              }
+             ?>
             </div>
 
             <style>
-                @media (max-width: 768px) {
-                    .card-box {
-                        flex: 0 0 100%;
-                        position: absolute;
-                    }
+            @media (max-width: 768px) {
+                .card-box {
+                    flex: 0 0 100%;
+                    position: absolute;
                 }
+            }
             </style>
+
+            <!-- The Modal -->
+            <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Modal Heading</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            Modal body..
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
 
             <!-- table buku baru -->
             <?php
             include 'config/koneksi.php';
             $query = mysqli_query($koneksi, "SELECT * FROM book ORDER BY id_buku DESC");
             ?>
-            <div class="card-box" >
+            <div class="card-box">
                 <a href="action/create_buku.php" class="d-flex justify-content-between px-3 pd-5">
-                <h3>Daftar Buku Baru</h3>
+                    <h3>Daftar Buku Baru</h3>
                     <button type="button" class="btn btn-outline-dark bi-plus-lg"></button>
                 </a>
                 <table class="data-table table nowrap mb-5">
@@ -379,17 +369,17 @@
     <script src="assets/admin/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
     <script src="assets/admin/vendors/scripts/dashboard.js"></script>
     <script>
-        function ubahData(a) {
-            let url = 'action/update_buku.php';
+    function ubahData(a) {
+        let url = 'action/update_buku.php';
 
-            $.post(url, {
-                id_buku: a
-            }, function (data) {
-                $('.modal-title').html('Update');
-                $('.modal-body').html(data);
+        $.post(url, {
+            id_buku: a
+        }, function(data) {
+            $('.modal-title').html('Update');
+            $('.modal-body').html(data);
 
-            });
-        }
+        });
+    }
     </script>
 </body>
 
