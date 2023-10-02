@@ -16,7 +16,6 @@
     $q = mysqli_query($koneksi, "SELECT * FROM book WHERE id_buku='$id'")
     ?>
     <div class="container mt-3">
-        <h2>Stacked form</h2>
         <?php while ($data = mysqli_fetch_array($q)) { ?>
         <form action="../controllers/update_data_buku.php" method="post">
         <input type="hidden" value="<?= $data['id_buku']?>" name= "id">
