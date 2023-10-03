@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['user'])) {
+    header('Location: login/login_admin.html');
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -7,9 +15,9 @@
     <title>DeskApp - Bootstrap Admin Dashboard HTML Template</title>
 
     <!-- Site favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="admin/vendors/images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="admin/vendors/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="admin/vendors/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/admin/vendors/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/admin/vendors/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/admin/vendors/images/favicon-16x16.png">
 
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -18,14 +26,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="admin/vendors/styles/core.css">
-    <link rel="stylesheet" type="text/css" href="admin/vendors/styles/icon-font.min.css">
-    <link rel="stylesheet" type="text/css" href="admin/src/plugins/datatables/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" type="text/css" href="admin/src/plugins/datatables/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/admin/vendors/styles/core.css">
+    <link rel="stylesheet" type="text/css" href="assets/admin/vendors/styles/icon-font.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/admin/src/plugins/datatables/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/admin/src/plugins/datatables/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" type="text/css" href="admin/vendors/styles/style.css">
-	<!-- cdn jquery -->
-	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="assets/admin/vendors/styles/style.css">
+    <!-- cdn jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
@@ -44,7 +53,7 @@
 <body>
     <div class="pre-loader">
         <div class="pre-loader-box">
-            <div class="loader-logo"><img src="admin/vendors/images/deskapp-logo.svg" alt=""></div>
+            <div class="loader-logo"><img src="assets/admin/vendors/images/deskapp-logo.svg" alt=""></div>
             <div class='loader-progress' id="progress_div">
                 <div class='bar' id='bar1'></div>
             </div>
@@ -76,75 +85,29 @@
                     </a>
                 </div>
             </div>
-            <!-- <div class="user-notification">
-				<div class="dropdown">
-					<a class="dropdown-toggle no-arrow" href="#" role="button" data-toggle="dropdown">
-						<i class="icon-copy dw dw-notification"></i>
-						<span class="badge notification-active"></span>
-					</a>
-					<div class="dropdown-menu dropdown-menu-right">
-						<div class="notification-list mx-h-350 customscroll">
-							<ul>
-								<li>
-									<a href="#">
-										<img src="admin/vendors/images/img.jpg" alt="">
-										<h3>John Doe</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="admin/vendors/images/photo1.jpg" alt="">
-										<h3>Lea R. Frith</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="admin/vendors/images/photo2.jpg" alt="">
-										<h3>Erik L. Richards</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="admin/vendors/images/photo3.jpg" alt="">
-										<h3>John Doe</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="admin/vendors/images/photo4.jpg" alt="">
-										<h3>Renee I. Hansen</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="admin/vendors/images/img.jpg" alt="">
-										<h3>Vicki M. Coleman</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div> -->
+            <!-- users -->
+            <?php
+                include 'config/koneksi.php';
+                $query = mysqli_query($koneksi, "SELECT * FROM users ORDER BY id DESC");
+            ?>
             <div class="user-info-dropdown">
+            <?php
+            while ($item= mysqli_fetch_array($query)) {
+            ?>
                 <div class="dropdown">
                     <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
                         <span class="user-icon">
-                            <img src="admin/vendors/images/photo1.jpg" alt="">
+                            <img src="assets/admin/vendors/images/photo1.jpg" alt="">
                         </span>
-                        <span class="user-name">Ross C. Lopez</span>
+                        <span class="user-name"><?=$item['username']?></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                        <a class="dropdown-item" href="index.html"><i class="dw dw-user1"></i> Profile</a>
-                        <a class="dropdown-item" href="login/login.html"><i class="dw dw-logout"></i> Log Out</a>
+                        <a class="dropdown-item" href="login/login_admin.html"><i class="dw dw-logout"></i> Log Out</a>
                     </div>
                 </div>
+                <?php
+                }
+                ?>
             </div>
         </div>
     </div>
@@ -241,8 +204,8 @@
     <div class="left-side-bar">
         <div class="brand-logo">
             <a href="index.html">
-                <img src="admin/vendors/images/deskapp-logo.svg" alt="" class="dark-logo">
-                <img src="admin/vendors/images/deskapp-logo-white.svg" alt="" class="light-logo">
+                <img src="assets/admin/vendors/images/deskapp-logo.svg" alt="" class="dark-logo">
+                <img src="assets/admin/vendors/images/deskapp-logo-white.svg" alt="" class="light-logo">
             </a>
             <div class="close-sidebar" data-toggle="left-sidebar-close">
                 <i class="ion-close-round"></i>
@@ -254,6 +217,11 @@
                     <li>
                         <a href="index.html" class="dropdown-toggle no-arrow">
                             <span class="micon dw dw-house-1"></span><span class="mtext">Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="data_peminjam.php" class="dropdown-toggle no-arrow">
+                            <span class="micon dw dw-house-1"></span><span class="mtext">Data Peminjam</span>
                         </a>
                     </li>
                     <li class="dropdown">
@@ -271,56 +239,80 @@
     <div class="mobile-menu-overlay"></div>
 
     <div class="main-container">
+    <?php
+        include 'config/koneksi.php';
+        $query = mysqli_query($koneksi, "SELECT * FROM users ORDER BY id DESC");
+    ?>
         <div class="pd-ltr-20">
             <div class="card-box pd-20 height-100-p mb-30">
+            <?php
+                while ($item= mysqli_fetch_array($query)) {
+            ?>
                 <div class="row align-items-center">
                     <div class="col-md-4">
-                        <img src="admin/vendors/images/banner-img.png" alt="">
+                        <img src="assets/admin/vendors/images/banner-img.png" alt="">
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-6">
                         <h4 class="font-20 weight-500 mb-10 text-capitalize">
-                            Welcome back <div class="weight-600 font-30 text-blue">Johnny Brown!</div>
+                            Welcome back <div class="weight-600 font-30 text-blue"><?=$item['username']?></div>
                         </h4>
-                        <p class="font-18 max-width-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde
-                            hic non repellendus debitis iure, doloremque assumenda. Autem modi, corrupti, nobis ea iure
-                            fugiat, veniam non quaerat mollitia animi error corporis.</p>
+                        <p class="font-18 max-width-600">Selamat datang di dashboard admin perpustakaan kami, tempat di mana Anda memiliki kendali penuh untuk mengelola dan memantau perjalanan literasi. Terima kasih atas kontribusi anda dalam memajukan literasi memalui platfom kami.</p>
                     </div>
                 </div>
+            <?php
+            }
+            ?>
             </div>
-            <!-- Modal -->
-            <div id="myModal" class="modal fade" role="dialog">
+
+            <style>
+            @media (max-width: 768px) {
+                .card-box {
+                    flex: 0 0 100%;
+                    position: absolute;
+                }
+            }
+            </style>
+
+            <!-- The Modal -->
+            <div class="modal" id="myModal">
                 <div class="modal-dialog">
-
-                    <!-- Modal content-->
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Modal Header</h4>
-                        </div>
-                        <div class="modal-body">
-                            <p>Some text in the modal.</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
 
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Modal Heading</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            Modal body..
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
+
+                    </div>
                 </div>
             </div>
+
             <!-- table buku baru -->
             <?php
-			include 'config/koneksi.php';
-			$query = mysqli_query($koneksi, "SELECT * FROM book ORDER BY id_buku DESC");
-			?>
-            <div class="card-box mb-5">
-                <h2 class="h4 pd-20">Buku Baru</h2>
-                <a href="form/create_buku.php" class="mb-4"><i
-                        class="bi bi-journal-plus btn btn-outline-primary"></i></a>
+            include 'config/koneksi.php';
+            $query = mysqli_query($koneksi, "SELECT * FROM book ORDER BY id_buku DESC");
+            ?>
+            <div class="card-box">
+                <a href="action/create_buku.php" class="d-flex justify-content-between px-3 pd-5">
+                    <h3>Daftar Buku Baru</h3>
+                    <button type="button" class="btn btn-outline-dark bi-plus-lg"></button>
+                </a>
                 <table class="data-table table nowrap mb-5">
                     <thead>
                         <tr>
-                            <th>No</th>
-                            <th class="table-plus datatable-nosort">Sampul</th>
+                            <th class="table-plus datatable-nosort">No</th>
+                            <th>Sampul</th>
                             <th>Judul</th>
                             <th>Kode</th>
                             <th>Nomor Buku</th>
@@ -331,24 +323,24 @@
                     </thead>
                     <tbody>
                         <?php
-                           $no =0;
-                           while ($data = mysqli_fetch_array($query)) {
-                           $no++
+                        $no = 0;
+                        while ($data = mysqli_fetch_array($query)) {
+                            $no++
                         ?>
                         <tr>
                         <tr>
                             <td><?= $no ?></td>
                             <td class="table-plus">
-                                <img src="assets/img/<?= $data ['foto_buku'] ?>" width="70" height="70" alt="">
+                                <img src="assets/img/<?= $data['foto_buku'] ?>" width="70" height="70" alt="">
                             </td>
                             <td>
-                                <h5 class="font-16"><?= $data ['judul_buku']?></h5>
-                                <?= $data ['penerbit'] ?>
+                                <h5 class="font-16"><?= $data['judul_buku'] ?></h5>
+                                <?= $data['penerbit'] ?>
                             </td>
-                            <td><?= $data ['kode_buku'] ?></td>
-                            <td><?= $data ['no_urut'] ?></td>
-                            <td><?= $data ['penerbit'] ?></td>
-                            <td><?= $data ['keterangan'] ?></td>
+                            <td><?= $data['kode_buku'] ?></td>
+                            <td><?= $data['no_urut'] ?></td>
+                            <td><?= $data['penerbit'] ?></td>
+                            <td><?= $data['keterangan'] ?></td>
                             <td>
                                 <div class="dropdown">
                                     <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#"
@@ -357,39 +349,43 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
                                         <a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
-                                        <a class="dropdown-item " href="" onclick="ubahData('<?= $data['id_buku'] ?>')" data-toggle="modal" data-target="#myModal"><i class="dw dw-edit2"></i> Edit</a>
-                                        <a class="dropdown-item" href="controllers/delete_data_buku.php?id_buku=<?= $data['id_buku'] ?>" ><i class="dw dw-delete-3"></i> Delete</a>
+                                        <a class="dropdown-item " href="" onclick="ubahData('<?= $data['id_buku'] ?>')"
+                                            data-toggle="modal" data-target="#myModal"><i class="dw dw-edit2"></i>
+                                            Edit</a>
+                                        <a class="dropdown-item"
+                                            href="controllers/delete_data_buku.php?id_buku=<?= $data['id_buku'] ?>"><i
+                                                class="dw dw-delete-3"></i> Delete</a>
                                     </div>
                                 </div>
                             </td>
                         </tr>
                         <?php
-						}
-						?>
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
     <!-- js -->
-    <script src="admin/vendors/scripts/core.js"></script>
-    <script src="admin/vendors/scripts/script.min.js"></script>
-    <script src="admin/vendors/scripts/process.js"></script>
-    <script src="admin/vendors/scripts/layout-settings.js"></script>
-    <script src="admin/src/plugins/apexcharts/apexcharts.min.js"></script>
-    <script src="admin/src/plugins/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="admin/src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
-    <script src="admin/src/plugins/datatables/js/dataTables.responsive.min.js"></script>
-    <script src="admin/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
-    <script src="admin/vendors/scripts/dashboard.js"></script>
+    <script src="assets/admin/vendors/scripts/core.js"></script>
+    <script src="assets/admin/vendors/scripts/script.min.js"></script>
+    <script src="assets/admin/vendors/scripts/process.js"></script>
+    <script src="assets/admin/vendors/scripts/layout-settings.js"></script>
+    <script src="assets/admin/src/plugins/apexcharts/apexcharts.min.js"></script>
+    <script src="assets/admin/src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="assets/admin/src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <script src="assets/admin/src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+    <script src="assets/admin/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+    <script src="assets/admin/vendors/scripts/dashboard.js"></script>
     <script>
     function ubahData(a) {
-        let url = 'form/update_buku.php';
+        let url = 'action/update_buku.php';
 
         $.post(url, {
             id_buku: a
         }, function(data) {
-            $('.modal-title').html('Perubahan');
+            $('.modal-title').html('Update');
             $('.modal-body').html(data);
 
         });
