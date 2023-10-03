@@ -300,22 +300,22 @@
 
     <!-- ======= Book Section ======= -->
     <?php
-            include 'config/koneksi.php';
-            $query = mysqli_query($koneksi, "SELECT * FROM book ORDER BY id_buku DESC");
-            ?>
+    include 'config/koneksi.php';
+    $query = mysqli_query($koneksi, "SELECT * FROM book ORDER BY id_buku DESC");
+    ?>
     <section class="book-section">
       <div class="container" data-aos="fade-up">
         <div class="section-header mb-5">
           <h2>Daftar Buku Terbaru Perpustakaan</h2>
         </div>
 
-        <div class="col-8">
+        <div class="col-lg-12 d-flex justify-content-between">
           <?php
           while ($data = mysqli_fetch_array($query)) {
           ?>
           <div class="row">
-            <div class="col-lg-4">
-              <a href="#"><img src="assets/img/<?= $data['foto_buku'] ?>" alt="" class="img-fluid"></a>
+            <div class="col-lg-10">
+              <a href="#"><img src="assets/img/<?= $data['foto_buku'] ?>" alt="" class="img-fluid" style="width: 200px"></a>
               <div class="post-meta"><span class="date"><?= $data['judul_buku'] ?></span> <span class="mx-1">&bullet;</span>
                 <span><?= $data['create_at'] ?></span></div>
               <div class="text-meta">

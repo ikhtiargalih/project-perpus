@@ -974,7 +974,7 @@ section {
   margin-top: 100px;
 }
 
-.book-section .col-8{
+.book-section .col-12{
   margin-left: 100px;
 }
 
@@ -987,8 +987,9 @@ section {
 }
 
 @media (max-width: 768px) {
-  .book-section .col-lg-4 img {
-    margin-top: 30px;
+  .book-section .media img {
+    margin-top: 50px;
+    position: relative;
   }
 }
 
