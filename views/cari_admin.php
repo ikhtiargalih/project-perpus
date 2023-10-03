@@ -14,11 +14,7 @@
             $query = mysqli_query($koneksi, "SELECT * FROM book WHERE id_buku like '%$cari%' || penerbit like '%$cari%' || judul_buku like '%$cari%'");           
          ?>
     <div class="card-box">
-        <a href="action/create_buku.php" class="d-flex justify-content-between px-3 pd-5">
-            <h3>Daftar Buku Baru</h3>
-            <button type="button" class="btn btn-outline-dark bi-plus-lg"></button>
-        </a>
-        <table class="data-table table nowrap mb-5">
+        <table class="data-table table nowrap table-dark mb-5">
             <thead>
                 <tr>
                     <th class="table-plus datatable-nosort">No</th>
