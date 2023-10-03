@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Bootstrap Example</title>
+    <title>Add Data Peminjam</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -16,32 +16,32 @@
 <body>
 
     <div class="container">
-        <div class="title">Tambah Buku Baru</div>
+        <div class="title">Tambah Data Peminjam</div>
         <div class="content">
-            <form action="../controllers/create_data_buku.php" method="post">
+            <form action="../controllers/create_data_peminjam.php" method="post">
                 <div class="user-details">
+                <div class="input-box">
+                        <span class="details">Id Buku</span>
+                        <input type="text" placeholder="Id Buku" name="id_buku">
+                    </div>
                     <div class="input-box">
-                        <span class="details">Judul</span>
-                        <input type="text" placeholder="judul buku" name="judul_buku">
+                        <span class="details">Nama</span>
+                        <input type="text" placeholder="Nama" name="nama">
                     </div>
                     <div class="input-box"> 
-                        <span class="details">image</span>
-                        <input type="file" name="foto_buku">
+                        <span class="details">Meminjam</span>
+                        <input type="date" name="meminjam">
                     </div>
                     <div class="input-box">
-                        <span class="details">Kode buku</span>
-                        <input type="text" placeholder="kode buku" name="kode_buku">
+                        <span class="details">Dikembalikan</span>
+                        <input type="date" placeholder="Dikembalikan" name="dikembalikan">
                     </div>
                     <div class="input-box">
-                        <span class="details">Nomor buku</span>
-                        <input type="text" placeholder="nomor buku" name="no_urut">
+                        <span class="details">Pengembalian</span>
+                        <input type="date" placeholder="Pengembalian" name="pengembalian">
                     </div>
                     <div class="input-box">
-                        <span class="details">penerbit</span>
-                        <input type="text" placeholder="penerbit buku" name="penerbit">
-                    </div>
-                    <div class="input-box">
-                        <span class="details">keterangan</span>
+                        <span class="details">Keterangan</span>
                         <textarea aria-label="With textarea" name="keterangan"></textarea>
                     </div>
                 </div>

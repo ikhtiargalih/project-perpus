@@ -16,9 +16,9 @@ if($hasil <= 0){
 }else{
     session_start();
 
-    $_SESSION['login'] = 'login';
+    $_SESSION['user'] = 'user';
 
-    header('Location: ../');
+    header('Location: ../dashboard_admin.php');
 }
 
 ?>

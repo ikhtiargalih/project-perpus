@@ -17,8 +17,8 @@
     ?>
     <div class="container mt-3">
         <?php while ($data = mysqli_fetch_array($q)) { ?>
-        <form action="../controllers/update_data_buku.php" method="post">
-        <input type="hidden" value="<?= $data['id_buku']?>" name= "id">
+        <form action="controllers/update_data_buku.php" method="post">
+        <input type="hidden" value="<?= $data['id_buku']?>" name= "id_buku">
             <div class="input-group mb-3">
                 <span class="input-group-text" >Judul</span>
                 <input type="text" class="form-control" placeholder="judul buku" aria-label="judul buku"
