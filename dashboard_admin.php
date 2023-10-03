@@ -25,6 +25,7 @@ if(!isset($_SESSION['user'])) {
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
+    
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/admin/vendors/styles/core.css">
     <link rel="stylesheet" type="text/css" href="assets/admin/vendors/styles/icon-font.min.css">
@@ -224,7 +225,7 @@ if(!isset($_SESSION['user'])) {
                     </li>
                     <li>
                         <a href="data_peminjam.php" class="dropdown-toggle no-arrow">
-                            <span class="micon dw dw-house-1"></span><span class="mtext">Data Peminjam</span>
+                            <span class="micon dw dw-people-outline-1"></span><span class="mtext">Data Peminjam</span>
                         </a>
                     </li>
                     <li class="dropdown">
