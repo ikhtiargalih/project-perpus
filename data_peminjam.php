@@ -1,18 +1,9 @@
-<?php
-session_start();
-
-if(!isset($_SESSION['user'])) {
-    header('Location: login/login_admin.html');
-}
-?>
-
 <!DOCTYPE html>
 <html>
-
 <head>
     <!-- Basic Page Info -->
     <meta charset="utf-8">
-    <title>DeskApp - Bootstrap Admin Dashboard HTML Template</title>
+    <title>Data Peminjam</title>
 
     <!-- Site favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/admin/vendors/images/apple-touch-icon.png">
@@ -49,7 +40,6 @@ if(!isset($_SESSION['user'])) {
     gtag('config', 'UA-119386393-1');
     </script>
 </head>
-
 <body>
     <div class="pre-loader">
         <div class="pre-loader-box">
@@ -215,7 +205,7 @@ if(!isset($_SESSION['user'])) {
             <div class="sidebar-menu">
                 <ul id="accordion-menu">
                     <li>
-                        <a href="index.html" class="dropdown-toggle no-arrow">
+                        <a href="dashboard_admin.php" class="dropdown-toggle no-arrow">
                             <span class="micon dw dw-house-1"></span><span class="mtext">Home</span>
                         </a>
                     </li>
@@ -248,17 +238,7 @@ if(!isset($_SESSION['user'])) {
             <?php
                 while ($item= mysqli_fetch_array($query)) {
             ?>
-                <div class="row align-items-center">
-                    <div class="col-md-4">
-                        <img src="assets/admin/vendors/images/banner-img.png" alt="">
-                    </div>
-                    <div class="col-md-6">
-                        <h4 class="font-20 weight-500 mb-10 text-capitalize">
-                            Welcome back <div class="weight-600 font-30 text-blue"><?=$item['username']?></div>
-                        </h4>
-                        <p class="font-18 max-width-600">Selamat datang di dashboard admin perpustakaan kami, tempat di mana Anda memiliki kendali penuh untuk mengelola dan memantau perjalanan literasi. Terima kasih atas kontribusi anda dalam memajukan literasi memalui platfom kami.</p>
-                    </div>
-                </div>
+                
             <?php
             }
             ?>
@@ -274,49 +254,49 @@ if(!isset($_SESSION['user'])) {
             </style>
 
             <!-- The Modal -->
-            <div class="modal" id="myModal">
+            <!-- <div class="modal" id="myModal">
                 <div class="modal-dialog">
-                    <div class="modal-content">
+                    <div class="modal-content"> -->
 
                         <!-- Modal Header -->
-                        <div class="modal-header">
+                        <!-- <div class="modal-header">
                             <h4 class="modal-title">Modal Heading</h4>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                        </div>
+                        </div> -->
 
                         <!-- Modal body -->
-                        <div class="modal-body">
+                        <!-- <div class="modal-body">
                             Modal body..
-                        </div>
+                        </div> -->
 
                         <!-- Modal footer -->
-                        <div class="modal-footer">
+                        <!-- <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                         </div>
 
                     </div>
                 </div>
-            </div>
+            </div> -->
 
-            <!-- table buku baru -->
+            <!-- table data peminjam -->
             <?php
             include 'config/koneksi.php';
-            $query = mysqli_query($koneksi, "SELECT * FROM book ORDER BY id_buku DESC");
+            $query = mysqli_query($koneksi, "SELECT * FROM peminjam ORDER BY id_buku DESC");
             ?>
             <div class="card-box">
-                <a href="action/create_buku.php" class="d-flex justify-content-between px-3 pd-5">
-                    <h3>Daftar Buku Baru</h3>
+                <a href="action/create_peminjam.php" class="d-flex justify-content-between px-3 pd-5">
+                    <h3>Data Peminjam</h3>
                     <button type="button" class="btn btn-outline-dark bi-plus-lg"></button>
                 </a>
                 <table class="data-table table nowrap mb-5">
                     <thead>
                         <tr>
                             <th class="table-plus datatable-nosort">No</th>
-                            <th>Sampul</th>
-                            <th>Judul</th>
-                            <th>Kode</th>
-                            <th>Nomor Buku</th>
-                            <th>Pernerbit</th>
+                            <th>Id Buku</th>
+                            <th>Nama</th>
+                            <th>Meminjam</th>
+                            <th>Dikembalikan</th>
+                            <th>Pengembalian</th>
                             <th>Keterangan</th>
                             <th class="datatable-nosort">Action</th>
                         </tr>
@@ -330,16 +310,11 @@ if(!isset($_SESSION['user'])) {
                         <tr>
                         <tr>
                             <td><?= $no ?></td>
-                            <td class="table-plus">
-                                <img src="assets/img/<?= $data['foto_buku'] ?>" width="70" height="70" alt="">
-                            </td>
-                            <td>
-                                <h5 class="font-16"><?= $data['judul_buku'] ?></h5>
-                                <?= $data['penerbit'] ?>
-                            </td>
-                            <td><?= $data['kode_buku'] ?></td>
-                            <td><?= $data['no_urut'] ?></td>
-                            <td><?= $data['penerbit'] ?></td>
+                            <td><?= $data['id_buku'] ?></td>
+                            <td><?= $data['nama'] ?></td>
+                            <td><?= $data['meminjam'] ?></td>
+                            <td><?= $data['dikembalikan'] ?></td>
+                            <td><?= $data['pengembalian'] ?></td>
                             <td><?= $data['keterangan'] ?></td>
                             <td>
                                 <div class="dropdown">
@@ -349,12 +324,11 @@ if(!isset($_SESSION['user'])) {
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
                                         <a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
-                                        <a class="dropdown-item " href="" onclick="ubahData('<?= $data['id_buku'] ?>')"
-                                            data-toggle="modal" data-target="#myModal"><i class="dw dw-edit2"></i>
-                                            Edit</a>
+                                        <a class="dropdown-item " href="" onclick="update_data('<?= $data['id'] ?>')"
+                                            data-toggle="modal" data-target="#myModal"><i class="dw dw-edit2"></i>Edit</a>
                                         <a class="dropdown-item"
-                                            href="controllers/delete_data_buku.php?id_buku=<?= $data['id_buku'] ?>"><i
-                                                class="dw dw-delete-3"></i> Delete</a>
+                                            href="controllers/delete_data_peminjam.php?id=<?= $data['id'] ?>">
+                                            <i class="dw dw-delete-3"></i> Delete</a>
                                     </div>
                                 </div>
                             </td>
@@ -379,18 +353,42 @@ if(!isset($_SESSION['user'])) {
     <script src="assets/admin/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
     <script src="assets/admin/vendors/scripts/dashboard.js"></script>
     <script>
-    function ubahData(a) {
-        let url = 'action/update_buku.php';
 
+    function update_data(a) {
+        let url = 'action/update_peminjam.php';
         $.post(url, {
-            id_buku: a
+            id: a
         }, function(data) {
-            $('.modal-title').html('Update');
+            $('.modal-title').html('Update Data Peminjam');
             $('.modal-body').html(data);
 
         });
     }
     </script>
-</body>
 
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Modal body..
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
 </html>
