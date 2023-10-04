@@ -301,7 +301,7 @@
     <!-- ======= Book Section ======= -->
     <?php
     include 'config/koneksi.php';
-    $query = mysqli_query($koneksi, "SELECT * FROM book ORDER BY id_buku DESC");
+    $query = mysqli_query($koneksi, "SELECT * FROM buku ORDER BY kode_buku DESC");
     ?>
     <section class="book-section">
       <div class="container" data-aos="fade-up">
@@ -429,14 +429,20 @@
       let cari = $('#cari').val();
       let url = 'views/hasil_cari.php';
 
-      $.post(url,{
-        cari:cari
-      },function(data){
-        $('#hasil_cari').html(data);
-      });
+
+      if (cari.trim() !== '') {
+    $.post(url, {
+      cari: cari
+    }, function (data) {
+      $('#hasil_cari').html(data);
+    });
+  } else {
+    $('#hasil_cari').html('');
+  }
+}
 
 
-    }
+  
   </script>
 
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
