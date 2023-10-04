@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cari</title>
 </head>
 
 <body>
     <?php
-            include '../config/koneksi.php';
-            $cari = $_POST['cari'];
-            $query = mysqli_query($koneksi, "SELECT * FROM book WHERE id_buku like '%$cari%' || penerbit like '%$cari%' || judul_buku like '%$cari%'");           
+include '../config/koneksi.php';
+$cari = $_POST['cari'];
+$query = mysqli_query($koneksi, "SELECT * FROM buku WHERE kode_buku LIKE '%" . $cari."%' || judul_buku LIKE '%" . $cari."%' || nama_pengarang LIKE '%" . $cari."%' || penerbit LIKE '%" . $cari."%'");
          ?>
     <div class="card-box">
         <table class="data-table table nowrap table-dark mb-5">
