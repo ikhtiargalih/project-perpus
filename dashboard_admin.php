@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['user'])) {
+if($_SESSION['user'] != 'user') {
     header('Location: login/login_admin.html');
 }
 ?>
@@ -106,7 +106,7 @@ if(!isset($_SESSION['user'])) {
                         <span class="user-name"><?=$item['username']?></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                        <a class="dropdown-item" href="login/login_admin.html"><i class="dw dw-logout"></i> Log Out</a>
+                        <a class="dropdown-item" href="controllers/logout.php"><i class="dw dw-logout"></i> Log Out</a>
                     </div>
                 </div>
                 <?php
@@ -225,7 +225,7 @@ if(!isset($_SESSION['user'])) {
                     </li>
                     <li>
                         <a href="data_peminjam.php" class="dropdown-toggle no-arrow">
-                            <span class="micon dw dw-people-outline-1"></span><span class="mtext">Data Peminjam</span>
+                            <span class="micon dw dw-user-3"></span><span class="mtext">Data Peminjam</span>
                         </a>
                     </li>
                     <li class="dropdown">
