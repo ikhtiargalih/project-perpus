@@ -358,11 +358,11 @@ if($_SESSION['user'] != 'user') {
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
                                         <a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
                                         <a class="dropdown-item " href=""
-                                            onclick="ubahData('<?= $data['kode_buku'] ?>')" data-toggle="modal"
+                                            onclick="ubahData('<?= $data['id'] ?>')" data-toggle="modal"
                                             data-target="#myModal"><i class="dw dw-edit2"></i>
                                             Edit</a>
                                         <a class="dropdown-item"
-                                            href="controllers/delete_data_buku.php?id_buku=<?= $data['kode_buku'] ?>"><i
+                                            href="controllers/delete_data_buku.php?id_buku=<?= $data['id'] ?>"><i
                                                 class="dw dw-delete-3"></i> Delete</a>
                                     </div>
                                 </div>
@@ -392,7 +392,7 @@ if($_SESSION['user'] != 'user') {
             let url = 'action/update_buku.php';
 
             $.post(url, {
-                id_buku: a
+                id:a
             }, function (data) {
                 $('.modal-title').html('Update');
                 $('.modal-body').html(data);
