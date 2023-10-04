@@ -51,7 +51,7 @@ if(!isset($_SESSION['user'])) {
 </head>
 
 <body>
-    <div class="pre-loader">
+    <!-- <div class="pre-loader">
         <div class="pre-loader-box">
             <div class="loader-logo"><img src="assets/admin/vendors/images/deskapp-logo.svg" alt=""></div>
             <div class='loader-progress' id="progress_div">
@@ -62,7 +62,7 @@ if(!isset($_SESSION['user'])) {
                 Loading...
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="header">
         <div class="header-left">
@@ -273,7 +273,7 @@ if(!isset($_SESSION['user'])) {
                 @media (max-width: 768px) {
                     .card-box {
                         flex: 0 0 100%;
-                        position: absolute;
+                        position: relative;
                     }
                 }
             </style>
@@ -306,7 +306,7 @@ if(!isset($_SESSION['user'])) {
             <!-- table buku baru -->
             <?php
             include 'config/koneksi.php';
-            $query = mysqli_query($koneksi, "SELECT * FROM book ORDER BY id_buku DESC");
+            $query = mysqli_query($koneksi, "SELECT * FROM buku ORDER BY kode_buku DESC");
             ?>
             <div class="card-box">
                 <a href="action/create_buku.php" class="d-flex justify-content-between px-3 pd-5">
@@ -316,13 +316,16 @@ if(!isset($_SESSION['user'])) {
                 <table class="data-table table nowrap mb-5">
                     <thead>
                         <tr>
-                            <th class="table-plus datatable-nosort">No</th>
-                            <th>Sampul</th>
-                            <th>Judul</th>
-                            <th>Kode</th>
-                            <th>Nomor Buku</th>
-                            <th>Pernerbit</th>
-                            <th>Keterangan</th>
+                            <th>loker book</th>
+                            <th>no rak</th>
+                            <th>kode buku</th>
+                            <th>no books</th>
+                            <th>Judul buku</th>
+                            <th>nama pengarang</th>
+                            <th>tahun terbit</th>
+                            <th>penerbit</th>
+                            <th>qty</th>
+                            <th>keterangan</th>
                             <th class="datatable-nosort">Action</th>
                         </tr>
                     </thead>
@@ -332,19 +335,18 @@ if(!isset($_SESSION['user'])) {
                         while ($data = mysqli_fetch_array($query)) {
                             $no++
                         ?>
+
                         <tr>
-                        <tr>
-                            <td><?= $no ?></td>
-                            <td class="table-plus">
-                                <img src="assets/img/<?= $data['foto_buku'] ?>" width="70" height="70" alt="">
-                            </td>
-                            <td>
-                                <h5 class="font-16"><?= $data['judul_buku'] ?></h5>
-                                <?= $data['penerbit'] ?>
-                            </td>
+
+                            <td><?= $data['loker_buku'] ?></td>
+                            <td><?= $data['no_rak'] ?></td>
                             <td><?= $data['kode_buku'] ?></td>
-                            <td><?= $data['no_urut'] ?></td>
+                            <td><?= $data['no_boks'] ?></td>
+                            <td><?= $data['judul_buku'] ?></td>
+                            <td><?= $data['nama_pengarang'] ?></td>
+                            <td><?= $data['tahun_terbit'] ?></td>
                             <td><?= $data['penerbit'] ?></td>
+                            <td><?= $data['qty'] ?></td>
                             <td><?= $data['keterangan'] ?></td>
                             <td>
                                 <div class="dropdown">
@@ -354,11 +356,12 @@ if(!isset($_SESSION['user'])) {
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
                                         <a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
-                                        <a class="dropdown-item " href="" onclick="ubahData('<?= $data['id_buku'] ?>')"
-                                            data-toggle="modal" data-target="#myModal"><i class="dw dw-edit2"></i>
+                                        <a class="dropdown-item " href=""
+                                            onclick="ubahData('<?= $data['kode_buku'] ?>')" data-toggle="modal"
+                                            data-target="#myModal"><i class="dw dw-edit2"></i>
                                             Edit</a>
                                         <a class="dropdown-item"
-                                            href="controllers/delete_data_buku.php?id_buku=<?= $data['id_buku'] ?>"><i
+                                            href="controllers/delete_data_buku.php?id_buku=<?= $data['kode_buku'] ?>"><i
                                                 class="dw dw-delete-3"></i> Delete</a>
                                     </div>
                                 </div>
@@ -400,11 +403,15 @@ if(!isset($_SESSION['user'])) {
             let cari = $('#cari').val();
             let url = 'views/cari_admin.php';
 
-            $.post(url, {
-                cari: cari
-            }, function (data) {
-                $('#hasil_cari').html(data);
-            });
+            if (cari.trim() !== '') {
+                $.post(url, {
+                    cari: cari
+                }, function (data) {
+                    $('#hasil_cari').html(data);
+                });
+            } else {
+                $('#hasil_cari').html('');
+            }
         }
     </script>
 </body>
