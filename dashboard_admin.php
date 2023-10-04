@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['user'])) {
+if($_SESSION['user'] != 'user') {
     header('Location: login/login_admin.html');
 }
 ?>
@@ -25,6 +25,7 @@ if(!isset($_SESSION['user'])) {
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
+    
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/admin/vendors/styles/core.css">
     <link rel="stylesheet" type="text/css" href="assets/admin/vendors/styles/icon-font.min.css">
@@ -39,14 +40,14 @@ if(!isset($_SESSION['user'])) {
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
+        window.dataLayer = window.dataLayer || [];
 
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
 
-    gtag('config', 'UA-119386393-1');
+        gtag('config', 'UA-119386393-1');
     </script>
 </head>
 
@@ -72,11 +73,14 @@ if(!isset($_SESSION['user'])) {
                 <form>
                     <div class="form-group mb-0">
                         <i class="dw dw-search2 search-icon"></i>
-                        <input type="text" class="form-control search-input" placeholder="Search Here">
+                        <input type="text" class="form-control search-input" placeholder="Search Here"
+                            onkeyup="search()" id="cari">
                     </div>
                 </form>
             </div>
         </div>
+        <section id="hasil_cari">
+        </section>
         <div class="header-right">
             <div class="dashboard-setting user-notification">
                 <div class="dropdown">
@@ -91,7 +95,7 @@ if(!isset($_SESSION['user'])) {
                 $query = mysqli_query($koneksi, "SELECT * FROM users ORDER BY id DESC");
             ?>
             <div class="user-info-dropdown">
-            <?php
+                <?php
             while ($item= mysqli_fetch_array($query)) {
             ?>
                 <div class="dropdown">
@@ -102,7 +106,7 @@ if(!isset($_SESSION['user'])) {
                         <span class="user-name"><?=$item['username']?></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                        <a class="dropdown-item" href="login/login_admin.html"><i class="dw dw-logout"></i> Log Out</a>
+                        <a class="dropdown-item" href="controllers/logout.php"><i class="dw dw-logout"></i> Log Out</a>
                     </div>
                 </div>
                 <?php
@@ -221,7 +225,7 @@ if(!isset($_SESSION['user'])) {
                     </li>
                     <li>
                         <a href="data_peminjam.php" class="dropdown-toggle no-arrow">
-                            <span class="micon dw dw-house-1"></span><span class="mtext">Data Peminjam</span>
+                            <span class="micon dw dw-user-3"></span><span class="mtext">Data Peminjam</span>
                         </a>
                     </li>
                     <li class="dropdown">
@@ -239,13 +243,13 @@ if(!isset($_SESSION['user'])) {
     <div class="mobile-menu-overlay"></div>
 
     <div class="main-container">
-    <?php
+        <?php
         include 'config/koneksi.php';
         $query = mysqli_query($koneksi, "SELECT * FROM users ORDER BY id DESC");
     ?>
         <div class="pd-ltr-20">
             <div class="card-box pd-20 height-100-p mb-30">
-            <?php
+                <?php
                 while ($item= mysqli_fetch_array($query)) {
             ?>
                 <div class="row align-items-center">
@@ -256,21 +260,23 @@ if(!isset($_SESSION['user'])) {
                         <h4 class="font-20 weight-500 mb-10 text-capitalize">
                             Welcome back <div class="weight-600 font-30 text-blue"><?=$item['username']?></div>
                         </h4>
-                        <p class="font-18 max-width-600">Selamat datang di dashboard admin perpustakaan kami, tempat di mana Anda memiliki kendali penuh untuk mengelola dan memantau perjalanan literasi. Terima kasih atas kontribusi anda dalam memajukan literasi memalui platfom kami.</p>
+                        <p class="font-18 max-width-600">Selamat datang di dashboard admin perpustakaan kami, tempat di
+                            mana Anda memiliki kendali penuh untuk mengelola dan memantau perjalanan literasi. Terima
+                            kasih atas kontribusi anda dalam memajukan literasi memalui platfom kami.</p>
                     </div>
                 </div>
-            <?php
+                <?php
             }
             ?>
             </div>
 
             <style>
-            @media (max-width: 768px) {
-                .card-box {
-                    flex: 0 0 100%;
-                    position: absolute;
+                @media (max-width: 768px) {
+                    .card-box {
+                        flex: 0 0 100%;
+                        position: absolute;
+                    }
                 }
-            }
             </style>
 
             <!-- The Modal -->
@@ -379,17 +385,28 @@ if(!isset($_SESSION['user'])) {
     <script src="assets/admin/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
     <script src="assets/admin/vendors/scripts/dashboard.js"></script>
     <script>
-    function ubahData(a) {
-        let url = 'action/update_buku.php';
+        function ubahData(a) {
+            let url = 'action/update_buku.php';
 
-        $.post(url, {
-            id_buku: a
-        }, function(data) {
-            $('.modal-title').html('Update');
-            $('.modal-body').html(data);
+            $.post(url, {
+                id_buku: a
+            }, function (data) {
+                $('.modal-title').html('Update');
+                $('.modal-body').html(data);
 
-        });
-    }
+            });
+        }
+
+        function search() {
+            let cari = $('#cari').val();
+            let url = 'views/cari_admin.php';
+
+            $.post(url, {
+                cari: cari
+            }, function (data) {
+                $('#hasil_cari').html(data);
+            });
+        }
     </script>
 </body>
 
