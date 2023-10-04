@@ -17,7 +17,7 @@
     ?>
     <div class="container mt-3">
         <?php while ($data = mysqli_fetch_array($q)) { ?>
-        <form action="controllers/update_data_buku.php" method="post">
+        <form action="controllers/update_data_buku.php" method="post" >
             <div class="input-group mb-3">
                 <span class="input-group-text">Loker Buku</span>
                 <input type="text" class="form-control" placeholder="Loker buku" aria-label="loker buku"
@@ -25,7 +25,7 @@
                 <div class="input-group mb-3 mt-3">
                     <span class="input-group-text">No rak</span>
                     <input type="text" class="form-control" placeholder="No rak" aria-label="no rak"
-                        value="<?= $data['no_rak']?>">
+                    value="<?= $data['no_rak'] ?>">
                     <span class="input-group-text">kode buku</span>
                     <input type="text" class="form-control" placeholder="kode buku" aria-label="kode buku"
                         value="<?= $data['kode_buku']?>">
