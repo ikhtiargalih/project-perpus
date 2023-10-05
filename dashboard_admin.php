@@ -362,7 +362,7 @@ if($_SESSION['user'] != 'user') {
                                             data-target="#myModal"><i class="dw dw-edit2"></i>
                                             Edit</a>
                                         <a class="dropdown-item"
-                                            href="controllers/delete_data_buku.php?id_buku=<?= $data['id'] ?>"><i
+                                            href="controllers/delete_data_buku.php?id=<?= $data['id'] ?>"><i
                                                 class="dw dw-delete-3"></i> Delete</a>
                                     </div>
                                 </div>

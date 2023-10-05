@@ -12,7 +12,7 @@ $qty = $_POST['qty'];
 $keterangan = $_POST['keterangan'];
 $update_at= date('Y-m-d H:i:s');
 
-require_once '../config/koneksi.php';
+include '../config/koneksi.php';
 
 $query = mysqli_query($koneksi, "UPDATE `buku` SET `loker_buku`='$loker_buku',`no_rak`='$no_rak',`kode_buku`='$kode_buku',`no_boks`='$no_boks',`judul_buku`='$judul',`nama_pengarang`='$nama_pengarang',`tahun_terbit`='$tahun_terbit',`penerbit`='$penerbit',`qty`='$qty',`keterangan`='$keterangan' WHERE `id`='$id'");
 header('Location: ../dashboard_admin.php');
