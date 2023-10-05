@@ -36,15 +36,15 @@ $query = mysqli_query($koneksi, "SELECT * FROM buku WHERE kode_buku LIKE '%" . $
                 <tr>
                 <tr>
                     <td><?= $no ?></td>
-                    <td class="table-plus">
-                        <img src="assets/img/<?= $data['foto_buku'] ?>" width="70" height="70" alt="">
-                    </td>
+                    <!-- <td class="table-plus">
+                        <img src="assets/img/" width="70" height="70" alt="">
+                    </td> -->
                     <td>
                         <h5 class="font-16"><?= $data['judul_buku'] ?></h5>
                         <?= $data['penerbit'] ?>
                     </td>
                     <td><?= $data['kode_buku'] ?></td>
-                    <td><?= $data['no_urut'] ?></td>
+                    <td><?= $data['no_boks'] ?></td>
                     <td><?= $data['penerbit'] ?></td>
                     <td><?= $data['keterangan'] ?></td>
                     <td>
