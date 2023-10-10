@@ -33,6 +33,7 @@ if ($_SESSION['user'] != 'user') {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" type="text/css" href="assets/admin/vendors/styles/style.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+    
     <!-- cdn jquery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
@@ -295,7 +296,7 @@ if ($_SESSION['user'] != 'user') {
             <!-- table buku baru -->
             <?php
             include 'config/koneksi.php';
-            $query = mysqli_query($koneksi, "SELECT * FROM book ORDER BY judul_buku DESC");
+            $query = mysqli_query($koneksi, "SELECT * FROM buku ORDER BY kode_buku DESC");
             ?>
             <div class="card-box">
                 <a href="action/create_buku.php" class="d-flex justify-content-between px-3 pd-5">
@@ -306,12 +307,15 @@ if ($_SESSION['user'] != 'user') {
                 <table id="example" class="table table-striped" style="width:100%">
                     <thead>
                         <tr>
-                            <th class="table-plus datatable-nosort">No</th>
-                            <th>Sampul</th>
-                            <th>Judul</th>
-                            <th>Kode</th>
-                            <th>Nomor Buku</th>
-                            <th>Pernerbit</th>
+                            <th>Loker Buku</th>
+                            <th>No Rak</th>
+                            <th>Kode Buku</th>
+                            <th>No Buku</th>
+                            <th>Judul Buku</th>
+                            <th>Nama Pengarang</th>
+                            <th>Tahun Terbit</th>
+                            <th>Penerbit</th>
+                            <th>Quantity</th>
                             <th>Keterangan</th>
                             <th class="datatable-nosort">Action</th>
                         </tr>
@@ -323,17 +327,16 @@ if ($_SESSION['user'] != 'user') {
                             $no++
                         ?>
                             <tr>
-                                <td><?= $no ?></td>
-                                <td class="table-plus">
-                                    <img src="assets/img/<?= $data['foto_buku'] ?>" width="70" height="70" alt="">
-                                </td>
-                                <td>
-                                    <h5 class="font-16"><?= $data['judul_buku'] ?></h5>
-                                    <?= $data['penerbit'] ?>
-                                </td>
+
+                                <td><?= $data['loker_buku'] ?></td>
+                                <td><?= $data['no_rak'] ?></td>
                                 <td><?= $data['kode_buku'] ?></td>
-                                <td><?= $data['no_urut'] ?></td>
+                                <td><?= $data['no_boks'] ?></td>
+                                <td><?= $data['judul_buku'] ?></td>
+                                <td><?= $data['nama_pengarang'] ?></td>
+                                <td><?= $data['tahun_terbit'] ?></td>
                                 <td><?= $data['penerbit'] ?></td>
+                                <td><?= $data['qty'] ?></td>
                                 <td><?= $data['keterangan'] ?></td>
                                 <td>
                                     <div class="dropdown">
@@ -342,9 +345,9 @@ if ($_SESSION['user'] != 'user') {
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
                                             <a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
-                                            <a class="dropdown-item " href="" onclick="ubahData('<?= $data['id_buku'] ?>')" data-toggle="modal" data-target="#myModal"><i class="dw dw-edit2"></i>
+                                            <a class="dropdown-item " href="" onclick="ubahData('<?= $data['id'] ?>')" data-toggle="modal" data-target="#myModal"><i class="dw dw-edit2"></i>
                                                 Edit</a>
-                                            <a class="dropdown-item" href="controllers/delete_data_buku.php?id_buku=<?= $data['id_buku'] ?>"><i class="dw dw-delete-3"></i> Delete</a>
+                                            <a class="dropdown-item" href="controllers/delete_data_buku.php?id=<?= $data['id'] ?>"><i class="dw dw-delete-3"></i> Delete</a>
                                         </div>
                                     </div>
                                 </td>
@@ -369,14 +372,13 @@ if ($_SESSION['user'] != 'user') {
     <script src="assets/admin/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
     <script src="assets/admin/vendors/scripts/dashboard.js"></script>
     <script>
-        
         new DataTable('#example');
 
         function ubahData(a) {
             let url = 'action/update_buku.php';
 
             $.post(url, {
-                id_buku: a
+                id: a
             }, function(data) {
                 $('.modal-title').html('Update');
                 $('.modal-body').html(data);

@@ -11,42 +11,63 @@
 
 <body>
     <?php
-    $id= $_POST['id_buku'];
+    $id= $_POST['id'];
     include '../config/koneksi.php';
-    $q = mysqli_query($koneksi, "SELECT * FROM book WHERE id_buku='$id'")
+    $q = mysqli_query($koneksi, "SELECT * FROM buku WHERE id='$id'")
     ?>
     <div class="container mt-3">
         <?php while ($data = mysqli_fetch_array($q)) { ?>
-        <form action="controllers/update_data_buku.php" method="post">
-        <input type="hidden" value="<?= $data['id_buku']?>" name= "id_buku">
+        <form action="controllers/update_data_buku.php" method="post" >
+            <input type="hidden" value="<?= $id?>" name="id">
             <div class="input-group mb-3">
-                <span class="input-group-text" >Judul</span>
-                <input type="text" class="form-control" placeholder="judul buku" aria-label="judul buku"
-                    aria-describedby="basic-addon1 " name="judul_buku" value="<?= $data['judul_buku']?>">
+                <span class="input-group-text">Loker Buku</span>
+                <input type="text" class="form-control" placeholder="Loker buku" aria-label="loker buku"
+                    value="<?= $data['loker_buku']?>" name="loker_buku">
+                <div class="input-group mb-3 mt-3">
+                    <span class="input-group-text">No rak</span>
+                    <input type="text" class="form-control" placeholder="No rak" aria-label="no rak"
+                    value="<?= $data['no_rak'] ?>" name="no_rak">
+                    <span class="input-group-text">kode buku</span>
+                    <input type="text" class="form-control" placeholder="kode buku" aria-label="kode buku"
+                        value="<?= $data['kode_buku']?>" name="kode_buku">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">No Buku</span>
+                    <input type="text" class="form-control" placeholder="no buku" aria-label="no_boks"
+                        aria-describedby="basic-addon1" value="<?= $data['no_boks']?>" name="no_boks">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Judul Buku</span>
+                    <input type="text" class="form-control" placeholder="judul buku" aria-label="judul buku"
+                        aria-describedby="basic-addon1" value="<?= $data['judul_buku']?>" name="judul_buku">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Nama Pengarang</span>
+                    <input type="text" class="form-control" placeholder="nama pengarang" aria-label="nama pengarang"
+                        aria-describedby="basic-addon1" value="<?= $data['nama_pengarang']?>" name="nama_pengarang">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Tahun terbit</span>
+                    <input type="text" class="form-control" placeholder="tahun terbit" aria-label="tahun terbit"
+                        aria-describedby="basic-addon1" value="<?= $data['tahun_terbit']?>" name="tahun_terbit">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Penerbit</span>
+                    <input type="text" class="form-control" placeholder="penebit" aria-label="penerbit"
+                        aria-describedby="basic-addon1" value="<?= $data['penerbit']?>" name="penerbit">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Quantity</span>
+                    <input type="text" class="form-control" placeholder="qunatity" aria-label="quantity"
+                        aria-describedby="basic-addon1" value="<?= $data['qty']?>" name="qty">
+                </div>
+                <div class="input-group mt-3">
+                    <span class="input-group-text">keterangan</span>
+                    <textarea class="form-control" aria-label="With textarea"
+                        value="<?= $data['keterangan']?>" name="keterangan"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </div>
-            <div class="input-group mb-3">
-            
-                <input class="form-control form-control-sm" id="formFileSm" type="file" name="foto_buku" value="<?= $data['foto_buku']?>">
-                <span class="input-group-text" >
-                <img src="assets/img/<?= $data['foto_buku'] ?>" class="img-fluid" alt="..." width="70px">
-                </span>
-            </div>
-            <div class="input-group mb-3">
-                <span class="input-group-text">Kode buku</span>
-                <input type="text" class="form-control" placeholder="kode buku" aria-label="kode buku" name="kode_buku" value="<?= $data['kode_buku']?>">
-                <span class="input-group-text">Nomor buku</span>
-                <input type="text" class="form-control" placeholder="nomor buku" aria-label="nomor buku" name="no_urut" value="<?= $data['no_urut']?>">
-            </div>
-            <div class="input-group mb-3">
-                <span class="input-group-text" >penerbit</span>
-                <input type="text" class="form-control" placeholder="penerbit buku" aria-label="penerbit buku"
-                    aria-describedby="basic-addon1" name="penerbit" value="<?= $data['penerbit']?>">
-            </div>
-            <div class="input-group">
-                <span class="input-group-text">keterangan</span>
-                <textarea class="form-control" aria-label="With textarea" name="keterangan" value="<?= $data['keterangan']?>"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
         <?php
         }

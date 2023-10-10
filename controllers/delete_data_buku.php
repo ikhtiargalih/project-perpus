@@ -1,6 +1,6 @@
 <?php 
-$id = $_GET['id_buku'];
+$id = $_GET['id'];
 include '../config/koneksi.php';
-$query = mysqli_query($koneksi, "DELETE FROM `book` WHERE id_buku='$id'");
+$query = mysqli_query($koneksi, "DELETE FROM `buku` WHERE id='$id'");
 header('Location: ../dashboard_admin.php');
 ?>

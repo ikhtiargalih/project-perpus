@@ -29,16 +29,36 @@
                         <input type="file" name="foto_buku">
                     </div>
                     <div class="input-box">
+                        <span class="details">Nomor Loker</span>
+                        <input type="text" placeholder="nomor loker buku" name="no_loker">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Nomor Rak </span>
+                        <input type="text" placeholder="nomor rak buku" name="no_rak">
+                    </div>
+                    <div class="input-box">
                         <span class="details">Kode buku</span>
                         <input type="text" placeholder="kode buku" name="kode_buku">
                     </div>
                     <div class="input-box">
                         <span class="details">Nomor buku</span>
-                        <input type="text" placeholder="nomor buku" name="no_urut">
+                        <input type="text" placeholder="nomor buku" name="no_boks">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Pengarang</span>
+                        <input type="text" placeholder="pengarang buku" name="nama_pengarang">
                     </div>
                     <div class="input-box">
                         <span class="details">penerbit</span>
                         <input type="text" placeholder="penerbit buku" name="penerbit">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Tahun penerbit</span>
+                        <input type="date" placeholder="tahun penerbitan" name="tahun_terbit">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Quantity</span>
+                        <input type="text" placeholder="quantity" name="qty">
                     </div>
                     <div class="input-box">
                         <span class="details">keterangan</span>

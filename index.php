@@ -23,9 +23,12 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
 
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
   <!-- Template Main CSS Files -->
   <link href="assets/css/variables.css" rel="stylesheet">
   <link href="assets/css/main.css" rel="stylesheet">
@@ -67,12 +70,12 @@
       <div class="position-relative">
         <!-- ======= Search Form ======= -->
         <div class="search-form-wrap js-search-form-wrap">
-        <a href="https://www.youtube.com/@andyazisiamin4336" class="mx-1 bi bi-youtube"></a>
-        <a href="https://twitter.com/AndyAzisiAmin" class="mx-1 bi bi-twitter"></a>
-        <a href="https://www.facebook.com/andy.azisi" class="mx-1 bi bi-facebook"></a>
-        <a href="https://www.instagram.com/andyazisiamin" class="mx-1 bi bi-instagram"></a>
-        <input type="hidden" class="btn js-search-close">
-        <input type="hidden" class="btn js-search-open">
+          <a href="https://www.youtube.com/@andyazisiamin4336" class="mx-1 bi bi-youtube"></a>
+          <a href="https://twitter.com/AndyAzisiAmin" class="mx-1 bi bi-twitter"></a>
+          <a href="https://www.facebook.com/andy.azisi" class="mx-1 bi bi-facebook"></a>
+          <a href="https://www.instagram.com/andyazisiamin" class="mx-1 bi bi-instagram"></a>
+          <input type="hidden" class="btn js-search-close">
+          <input type="hidden" class="btn js-search-open">
         </div><!-- End Search Form -->
       </div>
 
@@ -287,36 +290,52 @@
     <!-- End Section -->
 
     <!-- ======= Book Section ======= -->
+
     <?php
     include 'config/koneksi.php';
-    $query = mysqli_query($koneksi, "SELECT * FROM book ORDER BY id_buku DESC");
+    $query = mysqli_query($koneksi, "SELECT * FROM buku ORDER BY kode_buku DESC");
     ?>
-    <section class="book-section">
-      <div class="container" data-aos="fade-up">
-        <div class="section-header mb-5">
-          <h2>Daftar Buku Terbaru Perpustakaan</h2>
-        </div>
-
-        <div class="col-lg-12 d-flex justify-content-between">
+    <div class="container">
+      <div class="section-header mb-5">
+        <h2>Daftar Buku</h2>
+      </div>
+      <table id="example" class="table table-striped" style="width:100%">
+        <thead>
+          <tr>
+            <th>Loker Buku</th>
+            <th>No Rak</th>
+            <th>Kode Buku</th>
+            <th>No Buku</th>
+            <th>Judul Buku</th>
+            <th>Nama Pengarang</th>
+            <th>Tahun Terbit</th>
+            <th>Penerbit</th>
+          </tr>
+        </thead>
+        <tbody>
           <?php
+          $no = 0;
           while ($data = mysqli_fetch_array($query)) {
+            $no++
           ?>
-            <div class="row">
-              <div class="col-lg-10">
-                <a href="#"><img src="assets/img/<?= $data['foto_buku'] ?>" alt="" class="img-fluid" style="width: 200px"></a>
-                <div class="post-meta"><span class="date"><?= $data['judul_buku'] ?></span> <span class="mx-1">&bullet;</span>
-                  <span><?= $data['create_at'] ?></span>
-                </div>
-                <div class="text-meta">
-                  <h2><a href="#">Let’s Get Back to Work, New York</a></h2>
-                </div>
-              </div>
-            </div>
+            <tr>
+
+              <td><?= $data['loker_buku'] ?></td>
+              <td><?= $data['no_rak'] ?></td>
+              <td><?= $data['kode_buku'] ?></td>
+              <td><?= $data['no_boks'] ?></td>
+              <td><?= $data['judul_buku'] ?></td>
+              <td><?= $data['nama_pengarang'] ?></td>
+              <td><?= $data['tahun_terbit'] ?></td>
+              <td><?= $data['penerbit'] ?></td>
+            </tr>
           <?php
           }
-          ?> <!-- End .row -->
-        </div>
-    </section>
+          ?>
+        </tbody>
+      </table>
+    </div>
+
 
   </main><!-- End #main -->
 
@@ -418,17 +437,22 @@
   </footer>
 
   <script>
+    new DataTable('#example');
+
     function galih() {
       let cari = $('#cari').val();
       let url = 'views/hasil_cari.php';
 
-      $.post(url, {
-        cari: cari
-      }, function(data) {
-        $('#hasil_cari').html(data);
-      });
 
-
+      if (cari.trim() !== '') {
+        $.post(url, {
+          cari: cari
+        }, function(data) {
+          $('#hasil_cari').html(data);
+        });
+      } else {
+        $('#hasil_cari').html('');
+      }
     }
   </script>
 

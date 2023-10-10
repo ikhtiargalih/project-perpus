@@ -23,8 +23,12 @@
     <link rel="stylesheet" type="text/css" href="assets/admin/src/plugins/datatables/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" type="text/css" href="assets/admin/vendors/styles/style.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
     <!-- cdn jquery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
@@ -59,12 +63,6 @@
             <div class="menu-icon dw dw-menu"></div>
             <div class="search-toggle-icon dw dw-search2" data-toggle="header_search"></div>
             <div class="header-search">
-                <form>
-                    <div class="form-group mb-0">
-                        <i class="dw dw-search2 search-icon"></i>
-                        <input type="text" class="form-control search-input" placeholder="Search Here">
-                    </div>
-                </form>
             </div>
         </div>
         <div class="header-right">
@@ -197,7 +195,7 @@
                     </li>
                     <li>
                         <a href="data_peminjam.php" class="dropdown-toggle no-arrow">
-                            <span class="micon dw dw-house-1"></span><span class="mtext">Data Peminjam</span>
+                            <span class="micon dw dw-user-3"></span><span class="mtext">Data Peminjam</span>
                         </a>
                     </li>
                     <li class="dropdown">
@@ -239,50 +237,24 @@
                 }
             </style>
 
-            <!-- The Modal -->
-            <!-- <div class="modal" id="myModal">
-                <div class="modal-dialog">
-                    <div class="modal-content"> -->
-
-            <!-- Modal Header -->
-            <!-- <div class="modal-header">
-                            <h4 class="modal-title">Modal Heading</h4>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                        </div> -->
-
-            <!-- Modal body -->
-            <!-- <div class="modal-body">
-                            Modal body..
-                        </div> -->
-
-            <!-- Modal footer -->
-            <!-- <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                        </div>
-
-                    </div>
-                </div>
-            </div> -->
-
-            <!-- table data peminjam -->
+            
             <?php
             include 'config/koneksi.php';
-            $query = mysqli_query($koneksi, "SELECT * FROM peminjam ORDER BY id_buku DESC");
+            $query = mysqli_query($koneksi, "SELECT * FROM peminjam ORDER BY id DESC");
             ?>
             <div class="card-box">
-                <a href="action/create_peminjam.php" class="d-flex justify-content-between px-3 pd-5">
-                    <h3>Data Peminjam</h3>
-                    <button type="button" class="btn btn-outline-dark bi-plus-lg"></button>
-                </a>
-                <table class="data-table table nowrap mb-5">
+                <h3 class="mb-3">Daftar Buku Baru</h3>
+                <table id="example" class="table table-striped  " style="width:100%">
                     <thead>
                         <tr>
                             <th class="table-plus datatable-nosort">No</th>
-                            <th>Id Buku</th>
                             <th>Nama</th>
+                            <th>Kode Buku</th>
+                            <th>Judul Buku</th>
+                            <th>Pengarang</th>
+                            <th>Penerbit</th>
                             <th>Meminjam</th>
                             <th>Dikembalikan</th>
-                            <th>Pengembalian</th>
                             <th>Keterangan</th>
                             <th class="datatable-nosort">Action</th>
                         </tr>
@@ -294,13 +266,14 @@
                             $no++
                         ?>
                             <tr>
-                            <tr>
                                 <td><?= $no ?></td>
-                                <td><?= $data['id_buku'] ?></td>
                                 <td><?= $data['nama'] ?></td>
+                                <td><?= $data['kode_buku'] ?></td>
+                                <td><?= $data['judul_buku'] ?></td>
+                                <td><?= $data['pengarang'] ?></td>
+                                <td><?= $data['penerbit'] ?></td>
                                 <td><?= $data['meminjam'] ?></td>
                                 <td><?= $data['dikembalikan'] ?></td>
-                                <td><?= $data['pengembalian'] ?></td>
                                 <td><?= $data['keterangan'] ?></td>
                                 <td>
                                     <div class="dropdown">
@@ -336,6 +309,7 @@
     <script src="assets/admin/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
     <script src="assets/admin/vendors/scripts/dashboard.js"></script>
     <script>
+         new DataTable('#example');
 
         function update_data(a) {
             let url = 'action/update_peminjam.php';
