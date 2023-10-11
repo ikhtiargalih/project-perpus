@@ -301,7 +301,7 @@
     <!-- ======= Book Section ======= -->
     <?php
     include 'config/koneksi.php';
-    $query = mysqli_query($koneksi, "SELECT * FROM book ORDER BY id_buku DESC");
+    $query = mysqli_query($koneksi, "SELECT * FROM buku ORDER BY kode_buku DESC");
     ?>
     <section class="book-section">
       <div class="container" data-aos="fade-up">
@@ -315,9 +315,9 @@
           ?>
           <div class="row">
             <div class="col-lg-10">
-              <a href="#"><img src="assets/img/<?= $data['foto_buku'] ?>" alt="" class="img-fluid" style="width: 200px"></a>
+              <a href="#"><img src="assets/img/" alt="sampul" class="img-fluid" style="width: 200px"></a>
               <div class="post-meta"><span class="date"><?= $data['judul_buku'] ?></span> <span class="mx-1">&bullet;</span>
-                <span><?= $data['create_at'] ?></span></div>
+                <span><?= $data['tahun_terbit'] ?></span></div>
               <div class="text-meta">
                 <h2><a href="#">Let’s Get Back to Work, New York</a></h2>
               </div>
@@ -429,14 +429,20 @@
       let cari = $('#cari').val();
       let url = 'views/hasil_cari.php';
 
-      $.post(url,{
-        cari:cari
-      },function(data){
-        $('#hasil_cari').html(data);
-      });
+
+      if (cari.trim() !== '') {
+    $.post(url, {
+      cari: cari
+    }, function (data) {
+      $('#hasil_cari').html(data);
+    });
+  } else {
+    $('#hasil_cari').html('');
+  }
+}
 
 
-    }
+  
   </script>
 
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
