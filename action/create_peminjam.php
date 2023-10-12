@@ -41,20 +41,20 @@
                         <span class="details">Keterangan</span>
                         <textarea aria-label="With textarea" name="keterangan"></textarea>
                     </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">kode buku</span>
+                    <div class="input-box">
+                        <span class="details">kode buku</span>
                         <input type="text" class="form-control" placeholder="kode buku" aria-label="kode buku" value="<?= $data['kode_buku'] ?>" name="kode_buku">
                     </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Judul Buku</span>
+                    <div class="input-box">
+                        <span class="details">Judul Buku</span>
                         <input type="text" class="form-control" placeholder="judul buku" aria-label="judul buku" aria-describedby="basic-addon1" value="<?= $data['judul_buku'] ?>" name="judul_buku">
                     </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Nama Pengarang</span>
+                    <div class="input-box">
+                        <span class="details">Nama Pengarang</span>
                         <input type="text" class="form-control" placeholder="nama pengarang" aria-label="nama pengarang" aria-describedby="basic-addon1" value="<?= $data['nama_pengarang'] ?>" name="pengarang">
                     </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Penerbit</span>
+                    <div class="input-box">
+                        <span class="details">Penerbit</span>
                         <input type="text" class="form-control" placeholder="penebit" aria-label="penerbit" aria-describedby="basic-addon1" value="<?= $data['penerbit'] ?>" name="penerbit">
                     </div>
                 </div>

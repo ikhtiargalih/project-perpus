@@ -299,6 +299,7 @@ if ($_SESSION['user'] != 'user') {
             $query = mysqli_query($koneksi, "SELECT * FROM buku ORDER BY kode_buku DESC");
             ?>
             <div class="card-box">
+                <br>
                 <a href="action/create_buku.php" class="d-flex justify-content-between px-3 pd-5">
                     <h3>Daftar Buku Baru</h3>
                     <button type="button" class="btn btn-dark bi-plus-lg"></button>

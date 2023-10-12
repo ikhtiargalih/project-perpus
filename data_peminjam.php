@@ -243,7 +243,8 @@
             $query = mysqli_query($koneksi, "SELECT * FROM peminjam ORDER BY id DESC");
             ?>
             <div class="card-box">
-                <h3 class="mb-3">Daftar Buku Baru</h3>
+                <br>
+                <h2 class="mb-3 m-2 text-center">Data Peminjam</h2>
                 <table id="example" class="table table-striped  " style="width:100%">
                     <thead>
                         <tr>
