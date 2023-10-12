@@ -55,7 +55,7 @@ if ($_SESSION['user'] != 'user') {
 </head>
 
 <body>
-    <div class="pre-loader">
+    <!-- <div class="pre-loader">
         <div class="pre-loader-box">
             <div class="loader-logo"><img src="assets/admin/vendors/images/deskapp-logo.svg" alt=""></div>
             <div class='loader-progress' id="progress_div">
@@ -66,7 +66,7 @@ if ($_SESSION['user'] != 'user') {
                 Loading...
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="header">
         <div class="header-left">
@@ -137,7 +137,7 @@ if ($_SESSION['user'] != 'user') {
                     <a href="javascript:void(0);" class="btn btn-outline-primary header-dark">Dark</a>
                 </div>
 
-                <h4 class="weight-600 font-18 pb-10">Sidebar Background</h4>
+                <h4 class="weight-600 font-18 pb-10">Sidebar </h4>
                 <div class="sidebar-btn-group pb-30 mb-10">
                     <a href="javascript:void(0);" class="btn btn-outline-primary sidebar-light ">White</a>
                     <a href="javascript:void(0);" class="btn btn-outline-primary sidebar-dark active">Dark</a>
@@ -263,7 +263,7 @@ if ($_SESSION['user'] != 'user') {
                 @media (max-width: 768px) {
                     .card-box {
                         flex: 0 0 100%;
-                        position: absolute;
+                        position: relative;
                     }
                 }
             </style>
@@ -307,6 +307,7 @@ if ($_SESSION['user'] != 'user') {
                 <table id="example" class="table table-striped" style="width:100%">
                     <thead>
                         <tr>
+
                             <th>Loker Buku</th>
                             <th>No Rak</th>
                             <th>Kode Buku</th>
@@ -317,6 +318,7 @@ if ($_SESSION['user'] != 'user') {
                             <th>Penerbit</th>
                             <th>Quantity</th>
                             <th>Keterangan</th>
+
                             <th class="datatable-nosort">Action</th>
                         </tr>
                     </thead>
@@ -326,6 +328,7 @@ if ($_SESSION['user'] != 'user') {
                         while ($data = mysqli_fetch_array($query)) {
                             $no++
                         ?>
+
                             <tr>
 
                                 <td><?= $data['loker_buku'] ?></td>
@@ -349,6 +352,7 @@ if ($_SESSION['user'] != 'user') {
                                                 Edit</a>
                                             <a class="dropdown-item" href="controllers/delete_data_buku.php?id=<?= $data['id'] ?>"><i class="dw dw-delete-3"></i> Delete</a>
                                         </div>
+
                                     </div>
                                 </td>
                             </tr>
@@ -378,6 +382,7 @@ if ($_SESSION['user'] != 'user') {
             let url = 'action/update_buku.php';
 
             $.post(url, {
+
                 id: a
             }, function(data) {
                 $('.modal-title').html('Update');
@@ -395,6 +400,7 @@ if ($_SESSION['user'] != 'user') {
             }, function(data) {
                 $('#hasil_cari').html(data);
             });
+
         }
     </script>
 </body>

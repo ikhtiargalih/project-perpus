@@ -318,6 +318,7 @@
           while ($data = mysqli_fetch_array($query)) {
             $no++
           ?>
+
             <tr>
 
               <td><?= $data['loker_buku'] ?></td>
@@ -329,6 +330,7 @@
               <td><?= $data['tahun_terbit'] ?></td>
               <td><?= $data['penerbit'] ?></td>
             </tr>
+
           <?php
           }
           ?>
@@ -454,6 +456,7 @@
         $('#hasil_cari').html('');
       }
     }
+
   </script>
 
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

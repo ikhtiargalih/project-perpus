@@ -9,10 +9,12 @@
 
 <body>
     <?php
+
     include '../config/koneksi.php';
     $cari = $_POST['cari'];
     $query = mysqli_query($koneksi, "SELECT * FROM buku WHERE kode_buku LIKE '%" . $cari . "%' || judul_buku LIKE '%" . $cari . "%' || nama_pengarang LIKE '%" . $cari . "%' || penerbit LIKE '%" . $cari . "%'");
     ?>
+
     <div class="container py-5">
 
         <div class="row">
@@ -30,11 +32,13 @@
                             <th>penerbit</th>
                             <th>qty</th>
                             <th>keterangan</th>
+
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
+
                         $no = 0;
                         while ($data = mysqli_fetch_array($query)) {
                         ?>
@@ -54,6 +58,7 @@
                                         <button type="button" class="btn btn-light ">Pinjam</button>
                                     </a>
                                 </td>
+
                             <?php } ?>
                     </tbody>
                 </table>

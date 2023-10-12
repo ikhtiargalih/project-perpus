@@ -13,6 +13,7 @@ include '../config/koneksi.php';
 $cari = $_POST['cari'];
 $query = mysqli_query($koneksi, "SELECT * FROM buku WHERE kode_buku LIKE '%" . $cari."%' || judul_buku LIKE '%" . $cari."%' || nama_pengarang LIKE '%" . $cari."%' || penerbit LIKE '%" . $cari."%'");
          ?>
+
     <div class="container py-5">
         <h1 style="text-align: center;">Daftar Buku</h1><br>
         <div class="row">
