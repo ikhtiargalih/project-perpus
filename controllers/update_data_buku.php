@@ -15,5 +15,12 @@ $update_at= date('Y-m-d H:i:s');
 include '../config/koneksi.php';
 
 $query = mysqli_query($koneksi, "UPDATE `buku` SET `loker_buku`='$loker_buku',`no_rak`='$no_rak',`kode_buku`='$kode_buku',`no_boks`='$no_boks',`judul_buku`='$judul',`nama_pengarang`='$nama_pengarang',`tahun_terbit`='$tahun_terbit',`penerbit`='$penerbit',`qty`='$qty',`keterangan`='$keterangan' WHERE `id`='$id'");
+
+session_start();
+$_SESSION['alert'] = 'alert';
+$_SESSION['judul'] = 'Success';
+$_SESSION['text'] = 'Data berhasil diupdate';
+$_SESSION['icon'] = 'success';
+
 header('Location: ../dashboard_admin.php');
 ?>
