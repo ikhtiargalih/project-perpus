@@ -15,9 +15,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,9 +23,12 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
 
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
   <!-- Template Main CSS Files -->
   <link href="assets/css/variables.css" rel="stylesheet">
   <link href="assets/css/main.css" rel="stylesheet">
@@ -40,7 +41,7 @@
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="index.php" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1>E-Book</h1>
@@ -48,9 +49,8 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li class="dropdown"><a href="#"><span>Categories</span> <i
-                class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li><a href="index.php">Home</a></li>
+          <li class="dropdown"><a href="#"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li><a href="novel.html">Novel</a></li>
               <li><a href="history.html">History</a></li>
@@ -68,19 +68,14 @@
       </nav><!-- .navbar -->
 
       <div class="position-relative">
-        <a href="#" class="mx-2"><span class="bi-facebook"></span></a>
-        <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
-        <a href="#" class="mx-2"><span class="bi-instagram"></span></a>
-        <a href="#" class="mx-2 js-search-open"><span class="bi-search"></span></a>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-
         <!-- ======= Search Form ======= -->
         <div class="search-form-wrap js-search-form-wrap">
-          <form action="search-result.html" class="search-form">
-            <span class="icon bi-search"></span>
-            <input type="text" placeholder="Search" class="form-control">
-            <button class="btn js-search-close"><span class="bi-x"></span></button>
-          </form>
+          <a href="https://www.youtube.com/@andyazisiamin4336" class="mx-1 bi bi-youtube"></a>
+          <a href="https://twitter.com/AndyAzisiAmin" class="mx-1 bi bi-twitter"></a>
+          <a href="https://www.facebook.com/andy.azisi" class="mx-1 bi bi-facebook"></a>
+          <a href="https://www.instagram.com/andyazisiamin" class="mx-1 bi bi-instagram"></a>
+          <input type="hidden" class="btn js-search-close">
+          <input type="hidden" class="btn js-search-open">
         </div><!-- End Search Form -->
       </div>
 
@@ -98,15 +93,15 @@
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" onkeyup="galih()" id="cari">
           <div class="input-group-append">
             <button class="btn btn-outline-secondary" type="button">
-                <i class="bi bi-search"></i>
+              <i class="bi bi-search"></i>
             </button>
-        </div>
+          </div>
         </form>
       </div>
     </section>
 
     <section id="hasil_cari" class="text-slider">
-      
+
     </section>
 
 
@@ -236,8 +231,7 @@
             <div class="swiper sliderFeaturedPosts">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                  <a href="#" class="img-bg d-flex align-items-end"
-                    style="background-image: url('assets/img/perpus.jpg');">
+                  <a href="#" class="img-bg d-flex align-items-end" style="background-image: url('assets/img/perpus.jpg');">
                     <div class="img-bg-inner">
                       <h2>17 Pictures of Medium Length Hair in Layers That Will Inspire Your New Haircut</h2>
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae
@@ -248,8 +242,7 @@
                 </div>
 
                 <div class="swiper-slide">
-                  <a href="#" class="img-bg d-flex align-items-end"
-                    style="background-image: url('assets/img/perpus1.jpg');">
+                  <a href="#" class="img-bg d-flex align-items-end" style="background-image: url('assets/img/perpus1.jpg');">
                     <div class="img-bg-inner">
                       <h2>17 Pictures of Medium Length Hair in Layers That Will Inspire Your New Haircut</h2>
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae
@@ -260,8 +253,7 @@
                 </div>
 
                 <div class="swiper-slide">
-                  <a href="#" class="img-bg d-flex align-items-end"
-                    style="background-image: url('assets/img/perpus2.jpg');">
+                  <a href="#" class="img-bg d-flex align-items-end" style="background-image: url('assets/img/perpus2.jpg');">
                     <div class="img-bg-inner">
                       <h2>13 Amazing Poems from Shel Silverstein with Valuable Life Lessons</h2>
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae
@@ -272,8 +264,7 @@
                 </div>
 
                 <div class="swiper-slide">
-                  <a href="#" class="img-bg d-flex align-items-end"
-                    style="background-image: url('assets/img/perpus3.jpg');">
+                  <a href="#" class="img-bg d-flex align-items-end" style="background-image: url('assets/img/perpus3.jpg');">
                     <div class="img-bg-inner">
                       <h2>9 Half-up/half-down Hairstyles for Long and Medium Hair</h2>
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae
@@ -299,35 +290,54 @@
     <!-- End Section -->
 
     <!-- ======= Book Section ======= -->
+
     <?php
     include 'config/koneksi.php';
     $query = mysqli_query($koneksi, "SELECT * FROM buku ORDER BY kode_buku DESC");
     ?>
-    <section class="book-section">
-      <div class="container" data-aos="fade-up">
-        <div class="section-header mb-5">
-          <h2>Daftar Buku Terbaru Perpustakaan</h2>
-        </div>
-
-        <div class="col-lg-12 d-flex justify-content-between">
+    <div class="container">
+      <div class="section-header mb-5">
+        <h2>Daftar Buku</h2>
+      </div>
+      <table id="example" class="table table-striped" style="width:100%">
+        <thead>
+          <tr>
+            <th>Loker Buku</th>
+            <th>No Rak</th>
+            <th>Kode Buku</th>
+            <th>No Buku</th>
+            <th>Judul Buku</th>
+            <th>Nama Pengarang</th>
+            <th>Tahun Terbit</th>
+            <th>Penerbit</th>
+          </tr>
+        </thead>
+        <tbody>
           <?php
+          $no = 0;
           while ($data = mysqli_fetch_array($query)) {
+            $no++
           ?>
-          <div class="row">
-            <div class="col-lg-10">
-              <a href="#"><img src="assets/img/" alt="sampul" class="img-fluid" style="width: 200px"></a>
-              <div class="post-meta"><span class="date"><?= $data['judul_buku'] ?></span> <span class="mx-1">&bullet;</span>
-                <span><?= $data['tahun_terbit'] ?></span></div>
-              <div class="text-meta">
-                <h2><a href="#">Let’s Get Back to Work, New York</a></h2>
-              </div>
-            </div>
-          </div>
+
+            <tr>
+
+              <td><?= $data['loker_buku'] ?></td>
+              <td><?= $data['no_rak'] ?></td>
+              <td><?= $data['kode_buku'] ?></td>
+              <td><?= $data['no_boks'] ?></td>
+              <td><?= $data['judul_buku'] ?></td>
+              <td><?= $data['nama_pengarang'] ?></td>
+              <td><?= $data['tahun_terbit'] ?></td>
+              <td><?= $data['penerbit'] ?></td>
+            </tr>
+
           <?php
           }
-          ?> <!-- End .row -->
-        </div>
-    </section>
+          ?>
+        </tbody>
+      </table>
+    </div>
+
 
   </main><!-- End #main -->
 
@@ -348,8 +358,8 @@
           <div class="col-6 col-lg-2">
             <h3 class="footer-heading">Navigation</h3>
             <ul class="footer-links list-unstyled">
-              <li><a href="index.html"><i class="bi bi-chevron-right"></i> Home</a></li>
-              <li><a href="index.html"><i class="bi bi-chevron-right"></i> Categories</a></li>
+              <li><a href="index.php"><i class="bi bi-chevron-right"></i> Home</a></li>
+              <li><a href="index.php"><i class="bi bi-chevron-right"></i> Categories</a></li>
               <li><a href="about.html"><i class="bi bi-chevron-right"></i> About</a></li>
               <li><a href="contact.html"><i class="bi bi-chevron-right"></i> Contact</a></li>
             </ul>
@@ -376,7 +386,8 @@
                   <img src="assets/img/harry1.jpg" alt="" class="img-fluid me-3">
                   <div>
                     <div class="post-meta d-block"><span class="date">Culture</span> <span class="mx-1">&bullet;</span>
-                      <span>Jul 5th '22</span></div>
+                      <span>Jul 5th '22</span>
+                    </div>
                     <span>5 Great Startup Tips for Female Founders</span>
                   </div>
                 </a>
@@ -387,7 +398,8 @@
                   <img src="assets/img/harry1.jpg" alt="" class="img-fluid me-3">
                   <div>
                     <div class="post-meta d-block"><span class="date">Culture</span> <span class="mx-1">&bullet;</span>
-                      <span>Jul 5th '22</span></div>
+                      <span>Jul 5th '22</span>
+                    </div>
                     <span>What is the son of Football Coach John Gruden, Deuce Gruden doing Now?</span>
                   </div>
                 </a>
@@ -398,7 +410,8 @@
                   <img src="assets/img/harry.jpg" alt="" class="img-fluid me-3">
                   <div>
                     <div class="post-meta d-block"><span class="date">Culture</span> <span class="mx-1">&bullet;</span>
-                      <span>Jul 5th '22</span></div>
+                      <span>Jul 5th '22</span>
+                    </div>
                     <span>Life Insurance And Pregnancy: A Working Mom’s Guide</span>
                   </div>
                 </a>
@@ -409,7 +422,8 @@
                   <img src="assets/img/harry.jpg" alt="" class="img-fluid me-3">
                   <div>
                     <div class="post-meta d-block"><span class="date">Culture</span> <span class="mx-1">&bullet;</span>
-                      <span>Jul 5th '22</span></div>
+                      <span>Jul 5th '22</span>
+                    </div>
                     <span>How to Avoid Distraction and Stay Focused During Video Calls?</span>
                   </div>
                 </a>
@@ -425,28 +439,27 @@
   </footer>
 
   <script>
-    function galih(){
+    new DataTable('#example');
+
+    function galih() {
       let cari = $('#cari').val();
       let url = 'views/hasil_cari.php';
 
 
       if (cari.trim() !== '') {
-    $.post(url, {
-      cari: cari
-    }, function (data) {
-      $('#hasil_cari').html(data);
-    });
-  } else {
-    $('#hasil_cari').html('');
-  }
-}
+        $.post(url, {
+          cari: cari
+        }, function(data) {
+          $('#hasil_cari').html(data);
+        });
+      } else {
+        $('#hasil_cari').html('');
+      }
+    }
 
-
-  
   </script>
 
-  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
