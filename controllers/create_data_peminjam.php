@@ -13,5 +13,11 @@ require_once '../config/koneksi.php';
 
 $query = mysqli_query($koneksi, "INSERT INTO `peminjam`(`id`, `nama`, `kode_buku`, `judul_buku`, `pengarang`, `penerbit`, `meminjam`, `dikembalikan`, `keterangan`, `create_at`) VALUES ('','$nama','$kode_buku','$judul_buku','$pengarang','$penerbit','$meminjam','$dikembalikan','$keterangan','')");
 
+session_start();
+$_SESSION['alert'] = 'alert';
+$_SESSION['judul'] = 'Success';
+$_SESSION['text'] = 'Berhasil meminjam';
+$_SESSION['icon'] = 'success';
+
 header('Location: ../index.php');
 ?>

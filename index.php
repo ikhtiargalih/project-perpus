@@ -33,6 +33,9 @@
   <link href="assets/css/variables.css" rel="stylesheet">
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <!-- Sweetalert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
 </head>
 
 <body>
@@ -437,6 +440,29 @@
     </div>
 
   </footer>
+
+<?php
+if(isset($_SESSION['alert'])){
+  $judul = $_SESSION['judul'];
+  $text = $_SESSION['text'];
+  $icon = $_SESSION['icon'];
+
+if($_SESSION['alert'] == 'alert'){
+?>
+<script>
+  //sweetalert
+      Swal.fire(
+        '<?= $judul?>',
+        '<?= $text?>',
+        '<?= $icon?>'
+    )
+
+</script>
+<?php 
+  } 
+    unset($_SESSION['alert']);
+}
+?>
 
   <script>
     new DataTable('#example');

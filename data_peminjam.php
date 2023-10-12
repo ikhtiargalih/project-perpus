@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" type="text/css" href="assets/admin/vendors/styles/style.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <!-- cdn jquery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
@@ -32,6 +33,10 @@
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
+
+    <!-- Sweetalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -298,6 +303,30 @@
             </div>
         </div>
     </div>
+
+<?php
+if(isset($_SESSION['alert'])){
+  $judul = $_SESSION['judul'];
+  $text = $_SESSION['text'];
+  $icon = $_SESSION['icon'];
+
+if($_SESSION['alert'] == 'alert'){
+?>
+<script>
+  //sweetalert
+      Swal.fire(
+        '<?= $judul?>',
+        '<?= $text?>',
+        '<?= $icon?>'
+    )
+
+</script>
+<?php 
+  } 
+    unset($_SESSION['alert']);
+}
+?>
+
     <!-- js -->
     <script src="assets/admin/vendors/scripts/core.js"></script>
     <script src="assets/admin/vendors/scripts/script.min.js"></script>

@@ -42,6 +42,10 @@ if ($_SESSION['user'] != 'user') {
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
+
+    <!-- Sweetalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -208,7 +212,7 @@ if ($_SESSION['user'] != 'user') {
             <div class="sidebar-menu">
                 <ul id="accordion-menu">
                     <li>
-                        <a href="index.html" class="dropdown-toggle no-arrow">
+                        <a href="index.php" class="dropdown-toggle no-arrow">
                             <span class="micon dw dw-house-1"></span><span class="mtext">Home</span>
                         </a>
                     </li>
@@ -308,7 +312,6 @@ if ($_SESSION['user'] != 'user') {
                 <table id="example" class="table table-striped" style="width:100%">
                     <thead>
                         <tr>
-
                             <th>Loker Buku</th>
                             <th>No Rak</th>
                             <th>Kode Buku</th>
@@ -319,7 +322,6 @@ if ($_SESSION['user'] != 'user') {
                             <th>Penerbit</th>
                             <th>Quantity</th>
                             <th>Keterangan</th>
-
                             <th class="datatable-nosort">Action</th>
                         </tr>
                     </thead>
@@ -329,9 +331,7 @@ if ($_SESSION['user'] != 'user') {
                         while ($data = mysqli_fetch_array($query)) {
                             $no++
                         ?>
-
                             <tr>
-
                                 <td><?= $data['loker_buku'] ?></td>
                                 <td><?= $data['no_rak'] ?></td>
                                 <td><?= $data['kode_buku'] ?></td>
@@ -365,6 +365,30 @@ if ($_SESSION['user'] != 'user') {
             </div>
         </div>
     </div>
+
+<?php
+if(isset($_SESSION['alert'])){
+  $judul = $_SESSION['judul'];
+  $text = $_SESSION['text'];
+  $icon = $_SESSION['icon'];
+
+if($_SESSION['alert'] == 'alert'){
+?>
+<script>
+  //sweetalert
+      Swal.fire(
+        '<?= $judul?>',
+        '<?= $text?>',
+        '<?= $icon?>'
+    )
+
+</script>
+<?php 
+    unset($_SESSION['alert']);
+  } 
+}
+?>
+
     <!-- js -->
     <script src="assets/admin/vendors/scripts/core.js"></script>
     <script src="assets/admin/vendors/scripts/script.min.js"></script>
