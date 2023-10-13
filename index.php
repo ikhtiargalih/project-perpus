@@ -53,18 +53,6 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="index.php">Home</a></li>
-          <li class="dropdown"><a href="#"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="novel.html">Novel</a></li>
-              <li><a href="history.html">History</a></li>
-              <li><a href="romance.html">Romance</a></li>
-              <li><a href="comedy.html">Comedy</a></li>
-              <li><a href="horror.html">Horror</a></li>
-              <li><a href="food.html">Food</a></li>
-              <li><a href="lifestyle.html">Lifestyle</a></li>
-            </ul>
-          </li>
-
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -77,6 +65,7 @@
           <a href="https://twitter.com/AndyAzisiAmin" class="mx-1 bi bi-twitter"></a>
           <a href="https://www.facebook.com/andy.azisi" class="mx-1 bi bi-facebook"></a>
           <a href="https://www.instagram.com/andyazisiamin" class="mx-1 bi bi-instagram"></a>
+          <i class="bi bi-list mobile-nav-toggle"></i>
           <input type="hidden" class="btn js-search-close">
           <input type="hidden" class="btn js-search-open">
         </div><!-- End Search Form -->
@@ -132,15 +121,10 @@
                 repudiandae, inventore pariatur numquam cumque possimus exercitationem? Nihil tempore odit ab minus
                 eveniet praesentium, similique blanditiis molestiae ut saepe perspiciatis officia nemo, eos quae cumque.
                 Accusamus fugiat architecto rerum animi atque eveniet, quo, praesentium dignissimos</p>
-
-              <div class="d-flex align-items-center author">
-                <div class="photo"><img src="assets/img/person-1.jpg" alt="" class="img-fluid"></div>
-              </div>
             </div>
           </div>
-
           <div class="col-lg-8">
-            <div class="row g-5">
+            <div class="row justify-content-around">
               <div class="col-lg-4 border-start custom-border">
                 <div class="post-entry-1">
                   <a href="#"><img src="assets/img/harry potter.jpg" alt="" class="img-fluid"></a>
@@ -169,52 +153,6 @@
                   <h2><a href="#">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
                 </div>
               </div>
-
-              <!-- Trending Section -->
-              <div class="col-lg-4">
-
-                <div class="trending">
-                  <h3>Trending</h3>
-                  <ul class="trending-post">
-                    <li>
-                      <a href="#">
-                        <span class="number">1</span>
-                        <h3>The Best Homemade Masks for Face (keep the Pimples Away)</h3>
-                        <span class="author">Jane Cooper</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <span class="number">2</span>
-                        <h3>17 Pictures of Medium Length Hair in Layers That Will Inspire Your New Haircut</h3>
-                        <span class="author">Wade Warren</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <span class="number">3</span>
-                        <h3>13 Amazing Poems from Shel Silverstein with Valuable Life Lessons</h3>
-                        <span class="author">Esther Howard</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <span class="number">4</span>
-                        <h3>9 Half-up/half-down Hairstyles for Long and Medium Hair</h3>
-                        <span class="author">Cameron Williamson</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <span class="number">5</span>
-                        <h3>Life Insurance And Pregnancy: A Working Mom’s Guide</h3>
-                        <span class="author">Jenny Wilson</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-
-              </div> <!-- End Trending Section -->
             </div>
           </div>
 
@@ -298,9 +236,9 @@
     include 'config/koneksi.php';
     $query = mysqli_query($koneksi, "SELECT * FROM buku ORDER BY kode_buku DESC");
     ?>
-    <div class="container">
+    <div class="container mb-5">
       <div class="section-header mb-5">
-        <h2>Daftar Buku</h2>
+        <h2>Daftar Buku Baru Perpustakaan</h2>
       </div>
       <table id="example" class="table table-striped" style="width:100%">
         <thead>
@@ -358,30 +296,17 @@
               blanditiis omnis quae. Explicabo?</p>
             <p><a href="about.html" class="footer-link-more">Learn More</a></p>
           </div>
-          <div class="col-6 col-lg-2">
+          <div class="col-6 col-lg-4 text-center">
             <h3 class="footer-heading">Navigation</h3>
             <ul class="footer-links list-unstyled">
               <li><a href="index.php"><i class="bi bi-chevron-right"></i> Home</a></li>
-              <li><a href="index.php"><i class="bi bi-chevron-right"></i> Categories</a></li>
               <li><a href="about.html"><i class="bi bi-chevron-right"></i> About</a></li>
               <li><a href="contact.html"><i class="bi bi-chevron-right"></i> Contact</a></li>
             </ul>
           </div>
-          <div class="col-6 col-lg-2">
-            <h3 class="footer-heading">Categories</h3>
-            <ul class="footer-links list-unstyled">
-              <li><a href="novel.html"><i class="bi bi-chevron-right"></i> Novel</a></li>
-              <li><a href="history.html"><i class="bi bi-chevron-right"></i> History</a></li>
-              <li><a href=""><i class="bi bi-chevron-right"></i> Romance</a></li>
-              <li><a href=""><i class="bi bi-chevron-right"></i> Comedy</a></li>
-              <li><a href=""><i class="bi bi-chevron-right"></i> Horror</a></li>
-              <li><a href=""><i class="bi bi-chevron-right"></i> Food</a></li>
-              <li><a href=""><i class="bi bi-chevron-right"></i> Lifestyle</a></li>
-            </ul>
-          </div>
 
           <div class="col-lg-4">
-            <h3 class="footer-heading">Recent Posts</h3>
+            <h3 class="footer-heading">Recent Books</h3>
 
             <ul class="footer-links footer-blog-entry list-unstyled">
               <li>

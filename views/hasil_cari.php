@@ -18,8 +18,8 @@
     <div class="container py-5">
 
         <div class="row">
-            <div class="col-12">
-                <table class="table table-dark">
+            <div class="col-12 overflow-x-auto">
+                <table class="table table-dark table-striped">
                     <thead>
                         <tr>
                             <th>loker book</th>

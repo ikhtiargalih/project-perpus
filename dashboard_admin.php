@@ -23,7 +23,8 @@ if ($_SESSION['user'] != 'user') {
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/admin/vendors/styles/core.css">
@@ -33,9 +34,10 @@ if ($_SESSION['user'] != 'user') {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" type="text/css" href="assets/admin/vendors/styles/style.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
-    
+
     <!-- cdn jquery -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
@@ -59,7 +61,7 @@ if ($_SESSION['user'] != 'user') {
 </head>
 
 <body>
-    <!-- <div class="pre-loader">
+    <div class="pre-loader">
         <div class="pre-loader-box">
             <div class="loader-logo"><img src="assets/admin/vendors/images/deskapp-logo.svg" alt=""></div>
             <div class='loader-progress' id="progress_div">
@@ -70,22 +72,12 @@ if ($_SESSION['user'] != 'user') {
                 Loading...
             </div>
         </div>
-    </div> -->
+    </div>
 
     <div class="header">
         <div class="header-left">
             <div class="menu-icon dw dw-menu"></div>
-            <div class="search-toggle-icon dw dw-search2" data-toggle="header_search"></div>
-            <div class="header-search">
-                <form>
-                    <div class="form-group mb-0">
-                        <i class="dw dw-search2 search-icon"></i>
-                        <input type="text" class="form-control search-input" placeholder="Search Here" onkeyup="search()" id="cari">
-                    </div>
-                </form>
-            </div>
         </div>
-        <section id="hasil_cari">
         </section>
         <div class="header-right">
             <div class="dashboard-setting user-notification">
@@ -104,18 +96,18 @@ if ($_SESSION['user'] != 'user') {
                 <?php
                 while ($item = mysqli_fetch_array($query)) {
                 ?>
-                    <div class="dropdown">
-                        <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                            <span class="user-icon">
-                                <img src="assets/admin/vendors/images/photo1.jpg" alt="">
-                            </span>
-                            <span class="user-name"><?= $item['username'] ?></span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                            <a class="dropdown-item" href="controllers/logout.php"><i class="dw dw-logout"></i> Log Out</a>
-                            <a class="dropdown-item" href="index.php"><i class="dw dw-logout"></i> User </a>
-                        </div>
+                <div class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                        <span class="user-icon">
+                            <img src="assets/admin/vendors/images/photo1.jpg" alt="">
+                        </span>
+                        <span class="user-name"><?= $item['username'] ?></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                        <a class="dropdown-item" href="controllers/logout.php"><i class="dw dw-logout"></i> Log Out</a>
+                        <a class="dropdown-item" href="index.php"><i class="dw dw-logout"></i> User </a>
                     </div>
+                </div>
                 <?php
                 }
                 ?>
@@ -150,43 +142,57 @@ if ($_SESSION['user'] != 'user') {
                 <h4 class="weight-600 font-18 pb-10">Menu Dropdown Icon</h4>
                 <div class="sidebar-radio-group pb-10 mb-10">
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="sidebaricon-1" name="menu-dropdown-icon" class="custom-control-input" value="icon-style-1" checked="">
+                        <input type="radio" id="sidebaricon-1" name="menu-dropdown-icon" class="custom-control-input"
+                            value="icon-style-1" checked="">
                         <label class="custom-control-label" for="sidebaricon-1"><i class="fa fa-angle-down"></i></label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="sidebaricon-2" name="menu-dropdown-icon" class="custom-control-input" value="icon-style-2">
+                        <input type="radio" id="sidebaricon-2" name="menu-dropdown-icon" class="custom-control-input"
+                            value="icon-style-2">
                         <label class="custom-control-label" for="sidebaricon-2"><i class="ion-plus-round"></i></label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="sidebaricon-3" name="menu-dropdown-icon" class="custom-control-input" value="icon-style-3">
-                        <label class="custom-control-label" for="sidebaricon-3"><i class="fa fa-angle-double-right"></i></label>
+                        <input type="radio" id="sidebaricon-3" name="menu-dropdown-icon" class="custom-control-input"
+                            value="icon-style-3">
+                        <label class="custom-control-label" for="sidebaricon-3"><i
+                                class="fa fa-angle-double-right"></i></label>
                     </div>
                 </div>
 
                 <h4 class="weight-600 font-18 pb-10">Menu List Icon</h4>
                 <div class="sidebar-radio-group pb-30 mb-10">
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="sidebariconlist-1" name="menu-list-icon" class="custom-control-input" value="icon-list-style-1" checked="">
-                        <label class="custom-control-label" for="sidebariconlist-1"><i class="ion-minus-round"></i></label>
+                        <input type="radio" id="sidebariconlist-1" name="menu-list-icon" class="custom-control-input"
+                            value="icon-list-style-1" checked="">
+                        <label class="custom-control-label" for="sidebariconlist-1"><i
+                                class="ion-minus-round"></i></label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="sidebariconlist-2" name="menu-list-icon" class="custom-control-input" value="icon-list-style-2">
-                        <label class="custom-control-label" for="sidebariconlist-2"><i class="fa fa-circle-o" aria-hidden="true"></i></label>
+                        <input type="radio" id="sidebariconlist-2" name="menu-list-icon" class="custom-control-input"
+                            value="icon-list-style-2">
+                        <label class="custom-control-label" for="sidebariconlist-2"><i class="fa fa-circle-o"
+                                aria-hidden="true"></i></label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="sidebariconlist-3" name="menu-list-icon" class="custom-control-input" value="icon-list-style-3">
+                        <input type="radio" id="sidebariconlist-3" name="menu-list-icon" class="custom-control-input"
+                            value="icon-list-style-3">
                         <label class="custom-control-label" for="sidebariconlist-3"><i class="dw dw-check"></i></label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="sidebariconlist-4" name="menu-list-icon" class="custom-control-input" value="icon-list-style-4" checked="">
-                        <label class="custom-control-label" for="sidebariconlist-4"><i class="icon-copy dw dw-next-2"></i></label>
+                        <input type="radio" id="sidebariconlist-4" name="menu-list-icon" class="custom-control-input"
+                            value="icon-list-style-4" checked="">
+                        <label class="custom-control-label" for="sidebariconlist-4"><i
+                                class="icon-copy dw dw-next-2"></i></label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="sidebariconlist-5" name="menu-list-icon" class="custom-control-input" value="icon-list-style-5">
-                        <label class="custom-control-label" for="sidebariconlist-5"><i class="dw dw-fast-forward-1"></i></label>
+                        <input type="radio" id="sidebariconlist-5" name="menu-list-icon" class="custom-control-input"
+                            value="icon-list-style-5">
+                        <label class="custom-control-label" for="sidebariconlist-5"><i
+                                class="dw dw-fast-forward-1"></i></label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="sidebariconlist-6" name="menu-list-icon" class="custom-control-input" value="icon-list-style-6">
+                        <input type="radio" id="sidebariconlist-6" name="menu-list-icon" class="custom-control-input"
+                            value="icon-list-style-6">
                         <label class="custom-control-label" for="sidebariconlist-6"><i class="dw dw-next"></i></label>
                     </div>
                 </div>
@@ -221,14 +227,6 @@ if ($_SESSION['user'] != 'user') {
                             <span class="micon dw dw-user-3"></span><span class="mtext">Data Peminjam</span>
                         </a>
                     </li>
-                    <li class="dropdown">
-                        <a href="javascript:;" class="dropdown-toggle">
-                            <span class="micon dw dw-analytics-21"></span><span class="mtext">Management</span>
-                        </a>
-                        <ul class="submenu">
-                            <li><a href="knob-chart.html">Chart</a></li>
-                        </ul>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -245,19 +243,19 @@ if ($_SESSION['user'] != 'user') {
                 <?php
                 while ($item = mysqli_fetch_array($query)) {
                 ?>
-                    <div class="row align-items-center">
-                        <div class="col-md-4">
-                            <img src="assets/admin/vendors/images/banner-img.png" alt="">
-                        </div>
-                        <div class="col-md-6">
-                            <h4 class="font-20 weight-500 mb-10 text-capitalize">
-                                Welcome back <div class="weight-600 font-30 text-blue"><?= $item['username'] ?></div>
-                            </h4>
-                            <p class="font-18 max-width-600">Selamat datang di dashboard admin perpustakaan kami, tempat di
-                                mana Anda memiliki kendali penuh untuk mengelola dan memantau perjalanan literasi. Terima
-                                kasih atas kontribusi anda dalam memajukan literasi memalui platfom kami.</p>
-                        </div>
+                <div class="row align-items-center">
+                    <div class="col-md-4">
+                        <img src="assets/admin/vendors/images/banner-img.png" alt="">
                     </div>
+                    <div class="col-md-6">
+                        <h4 class="font-20 weight-500 mb-10 text-capitalize">
+                            Welcome back <div class="weight-600 font-30 text-blue"><?= $item['username'] ?></div>
+                        </h4>
+                        <p class="font-18 max-width-600">Selamat datang di dashboard admin perpustakaan kami, tempat di
+                            mana Anda memiliki kendali penuh untuk mengelola dan memantau perjalanan literasi. Terima
+                            kasih atas kontribusi anda dalam memajukan literasi memalui platfom kami.</p>
+                    </div>
+                </div>
                 <?php
                 }
                 ?>
@@ -331,42 +329,47 @@ if ($_SESSION['user'] != 'user') {
                         while ($data = mysqli_fetch_array($query)) {
                             $no++
                         ?>
-                            <tr>
-                                <td><?= $data['loker_buku'] ?></td>
-                                <td><?= $data['no_rak'] ?></td>
-                                <td><?= $data['kode_buku'] ?></td>
-                                <td><?= $data['no_boks'] ?></td>
-                                <td><?= $data['judul_buku'] ?></td>
-                                <td><?= $data['nama_pengarang'] ?></td>
-                                <td><?= $data['tahun_terbit'] ?></td>
-                                <td><?= $data['penerbit'] ?></td>
-                                <td><?= $data['qty'] ?></td>
-                                <td><?= $data['keterangan'] ?></td>
-                                <td>
-                                    <div class="dropdown">
-                                        <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                                            <i class="dw dw-more"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                            <a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
-                                            <a class="dropdown-item " href="" onclick="ubahData('<?= $data['id'] ?>')" data-toggle="modal" data-target="#myModal"><i class="dw dw-edit2"></i>
-                                                Edit</a>
-                                            <a class="dropdown-item" href="controllers/delete_data_buku.php?id=<?= $data['id'] ?>"><i class="dw dw-delete-3"></i> Delete</a>
-                                        </div>
-
+                        <tr>
+                            <td><?= $data['loker_buku'] ?></td>
+                            <td><?= $data['no_rak'] ?></td>
+                            <td><?= $data['kode_buku'] ?></td>
+                            <td><?= $data['no_boks'] ?></td>
+                            <td><?= $data['judul_buku'] ?></td>
+                            <td><?= $data['nama_pengarang'] ?></td>
+                            <td><?= $data['tahun_terbit'] ?></td>
+                            <td><?= $data['penerbit'] ?></td>
+                            <td><?= $data['qty'] ?></td>
+                            <td><?= $data['keterangan'] ?></td>
+                            <td>
+                                <div class="dropdown">
+                                    <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#"
+                                        role="button" data-toggle="dropdown">
+                                        <i class="dw dw-more"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                        <a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
+                                        <a class="dropdown-item " href="" onclick="ubahData('<?= $data['id'] ?>')"
+                                            data-toggle="modal" data-target="#myModal"><i class="dw dw-edit2"></i>
+                                            Edit</a>
+                                        <a class="dropdown-item"
+                                            href="controllers/delete_data_buku.php?id=<?= $data['id'] ?>"><i
+                                                class="dw dw-delete-3"></i> Delete</a>
                                     </div>
-                                </td>
-                            </tr>
+
+                                </div>
+                            </td>
+                        </tr>
                         <?php
                         }
                         ?>
                     </tbody>
                 </table>
             </div>
+            <br>
         </div>
     </div>
 
-<?php
+    <?php
 if(isset($_SESSION['alert'])){
   $judul = $_SESSION['judul'];
   $text = $_SESSION['text'];
@@ -374,16 +377,15 @@ if(isset($_SESSION['alert'])){
 
 if($_SESSION['alert'] == 'alert'){
 ?>
-<script>
-  //sweetalert
-      Swal.fire(
-        '<?= $judul?>',
-        '<?= $text?>',
-        '<?= $icon?>'
-    )
-
-</script>
-<?php 
+    <script>
+        //sweetalert
+        Swal.fire(
+            '<?= $judul?>',
+            '<?= $text?>',
+            '<?= $icon?>'
+        )
+    </script>
+    <?php 
     unset($_SESSION['alert']);
   } 
 }
@@ -409,7 +411,7 @@ if($_SESSION['alert'] == 'alert'){
             $.post(url, {
 
                 id: a
-            }, function(data) {
+            }, function (data) {
                 $('.modal-title').html('Update');
                 $('.modal-body').html(data);
 
@@ -422,7 +424,7 @@ if($_SESSION['alert'] == 'alert'){
 
             $.post(url, {
                 cari: cari
-            }, function(data) {
+            }, function (data) {
                 $('#hasil_cari').html(data);
             });
 

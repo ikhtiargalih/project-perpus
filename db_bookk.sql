@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Okt 2023 pada 14.21
--- Versi server: 10.4.22-MariaDB
--- Versi PHP: 8.1.2
+-- Generation Time: Oct 13, 2023 at 04:28 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_book`
+-- Database: `db_bookk`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `buku`
+-- Table structure for table `buku`
 --
 
 CREATE TABLE `buku` (
@@ -42,7 +42,7 @@ CREATE TABLE `buku` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data untuk tabel `buku`
+-- Dumping data for table `buku`
 --
 
 INSERT INTO `buku` (`id`, `loker_buku`, `no_rak`, `kode_buku`, `no_boks`, `judul_buku`, `nama_pengarang`, `tahun_terbit`, `penerbit`, `qty`, `keterangan`) VALUES
@@ -490,92 +490,100 @@ INSERT INTO `buku` (`id`, `loker_buku`, `no_rak`, `kode_buku`, `no_boks`, `judul
 (494, ' ', 0, '335E', 1, 'HOW THE WEST WAS LOST', 'Dambisa Moyo', '0000-00-00', 'FSG Books', '-', '-'),
 (495, ' ', 0, '330', 0, 'Business Model Canvas penerapan di Indonesia', 'Tim PPM Manajemen', '0000-00-00', 'PPM Manajemen', '-', '-'),
 (496, ' ', 0, '330', 0, 'Value Proposition Design', 'Alexander Osterwalder', '0000-00-00', 'Wiley', '-', '-'),
-(497, ' ', 0, '330', 0, 'The Invincible Company', 'Alexander Osterwalder', '0000-00-00', 'Wiley', '-', '-'),
-(498, '$loker_buku', 0, '$kode_buku', 0, '$judul', '$nama_pengarang', '0000-00-00', '$penerbit', '$qty', '$keterangan'),
-(499, '', 99, '23', 32, 'percobaan', 'udib', '2023-10-04', 'sambo', '23', 'sdss');
+(497, ' ', 0, '330', 0, 'The Invincible Company', 'Alexander Osterwalder', '0000-00-00', 'Wiley', '-', '-');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `peminjam`
+-- Table structure for table `peminjam`
 --
 
 CREATE TABLE `peminjam` (
   `id` int(255) NOT NULL,
-  `id_buku` int(255) NOT NULL,
   `nama` varchar(255) NOT NULL,
+  `kode_buku` int(255) NOT NULL,
+  `judul_buku` varchar(255) NOT NULL,
+  `pengarang` varchar(255) NOT NULL,
+  `penerbit` varchar(255) NOT NULL,
   `meminjam` datetime NOT NULL,
   `dikembalikan` datetime NOT NULL,
-  `pengembalian` datetime NOT NULL,
   `keterangan` varchar(255) NOT NULL,
-  `create_at` int(255) NOT NULL,
-  `delete_at` int(255) NOT NULL,
-  `update_at` int(255) NOT NULL
+  `create_at` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `peminjam`
+--
+
+INSERT INTO `peminjam` (`id`, `nama`, `kode_buku`, `judul_buku`, `pengarang`, `penerbit`, `meminjam`, `dikembalikan`, `keterangan`, `create_at`) VALUES
+(16, 'bos dari 4 keroco', 174, 'DUNIA USAHA DAN ETIKA BISNIS', 'JAKOB OETAMA', 'KOMPAS', '2023-10-08 00:00:00', '2023-10-07 00:00:00', '', 0),
+(18, 'christian', 174, 'DUNIA USAHA DAN ETIKA BISNIS', 'JAKOB OETAMA', 'KOMPAS', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'keren', 0),
+(19, 'Ronadlo', 174, 'DUNIA USAHA DAN ETIKA BISNIS', 'JAKOB OETAMA', 'KOMPAS', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'siuuu', 0),
+(20, 'Murphy', 300, 'ILMU SOSIAL DAN BUDAYA DASAR', 'Dr. Elly M. Setiadi, M.Si', 'Kencana', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'jjjjj', 0);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
   `id` int(255) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
   `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `email`) VALUES
-(4, 'sambo', '5ce5eeb274cf63fc19a6c40d55b2bba4', 'samboadmin@gmail.com');
+INSERT INTO `users` (`id`, `email`, `username`, `password`) VALUES
+(13, 'galihikhtiar10@gmail.com', 'galih', '202cb962ac59075b964b07152d234b70');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `buku`
+-- Indexes for table `buku`
 --
 ALTER TABLE `buku`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `peminjam`
+-- Indexes for table `peminjam`
 --
 ALTER TABLE `peminjam`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `buku`
+-- AUTO_INCREMENT for table `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=500;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=498;
 
 --
--- AUTO_INCREMENT untuk tabel `peminjam`
+-- AUTO_INCREMENT for table `peminjam`
 --
 ALTER TABLE `peminjam`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

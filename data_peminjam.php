@@ -203,14 +203,6 @@
                             <span class="micon dw dw-user-3"></span><span class="mtext">Data Peminjam</span>
                         </a>
                     </li>
-                    <li class="dropdown">
-                        <a href="javascript:;" class="dropdown-toggle">
-                            <span class="micon dw dw-analytics-21"></span><span class="mtext">Management</span>
-                        </a>
-                        <ul class="submenu">
-                            <li><a href="knob-chart.html">Chart</a></li>
-                        </ul>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -222,16 +214,6 @@
         include 'config/koneksi.php';
         $query = mysqli_query($koneksi, "SELECT * FROM users ORDER BY id DESC");
         ?>
-        <div class="pd-ltr-20">
-            <div class="card-box pd-20 height-100-p mb-30">
-                <?php
-                while ($item = mysqli_fetch_array($query)) {
-                ?>
-
-                <?php
-                }
-                ?>
-            </div>
 
             <style>
                 @media (max-width: 768px) {
@@ -301,7 +283,6 @@
                     </tbody>
                 </table>
             </div>
-        </div>
     </div>
 
 <?php
